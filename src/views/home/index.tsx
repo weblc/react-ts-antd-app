@@ -1,42 +1,15 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { NavLink } from 'react-router-dom';
-//定义props和state的类型接口
-import Menu from '@/views/home/components/menu'
-import HeaderDropdown from '@/views/home/components/headerDropdown'
+import React from "react";
 
-import styles from './index.module.less'
+import Header from "./components/header";
+import Body from "./components/body";
 
-interface IProps {
-  history: () => void; // () => void表示函数类型
-}
-interface IState {
-  msg: string;
-}
-//把props和state的类型接口传入组件
-export default class Home extends React.Component{
-  constructor(props:any){
-    super(props);
-    this.state={ }
-  }
+const Home: React.FC = () => {
+    return (
+        <div>
+            <Header />
+            <Body />
+        </div>
+    );
+};
 
-
-  render(){
-    return(
-      <div >
-                <Row type="flex" justify="space-between" align="middle" className={styles.header}>
-                    <Col span={8}>
-                    <Menu />
-                    </Col>
-                    <Col span={4} >
-                    <HeaderDropdown />
-                    </Col>
-                </Row>
-                <Row>
-                 <NavLink to="/login">About</NavLink>
-                </Row>
-
-      </div>
-    )
-  }
-}
+export default Home;

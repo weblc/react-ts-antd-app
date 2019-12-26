@@ -1,12 +1,17 @@
 import React from 'react';
-
-
-
-import Layout from '@/views/layout'
+import { Switch,Route,BrowserRouter } from 'react-router-dom';
+import { asyncComponent} from '@/components/AsyncComponent'
+const Home = asyncComponent(()=>import('@/views/home'))
 const App: React.FC = () => {
 
   return (
-    <Layout/>
+    <BrowserRouter>
+    <Switch>
+      <Route path="/user" render={()=><div>login</div>} />
+      <Route exact path="/" component={ Home } />
+    </Switch>
+
+    </BrowserRouter>
 
 
   );
