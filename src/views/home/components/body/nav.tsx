@@ -31,8 +31,10 @@ export default class Nav extends Component {
         return (
             <Row type="flex" justify="center" className={styles.nav_style}>
                 {
-                    titleLists.map((ele:Test):any =>{
-                    return  <Col span={2}>{ele.title}</Col>
+                    titleLists.map((ele:Test,index:number):any =>{
+                    return  <Col span={2} className="text-center" key={index}>
+                        <span>{ele.title}</span>
+                    </Col>
                     })
                 }
             </Row>

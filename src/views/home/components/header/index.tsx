@@ -4,7 +4,7 @@ import { Row, Col } from "antd";
 import { NavLink } from "react-router-dom";
 
 import Menu from "@/views/home/components/header/menu";
-import HeaderDropdown from "@/views/home/components/header/headerDropdown";
+import HeaderDropdown from "@/views/home/components/header/right";
 
 import styles from "./header.module.less";
 const mainLayout: React.FC = () => {
