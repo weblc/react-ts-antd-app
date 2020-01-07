@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-import { Row, Col, Icon, Empty } from "antd";
+import { Row, Col  } from "antd";
 import SvgIcon from "@/components/iconSvg";
 import { Menu, Dropdown } from "antd";
-import { Hash } from "crypto";
 
+import LoginModal from '@/views/account/login'
+import CommonModal from '@/components/commonModal'
 
 
 export default class Right extends React.Component<any,any>{
     constructor(props: any) {
         super(props);
         this.state = {
-            loginState: 0
+            loginState: 0,
+            visible:false,
         };
     }
     Hash = ():void=>{
-        console.log(123)
+        this.setState({ visible: true});
+    }
+    hideModal = ():void=>{
+        this.setState({ visible: false});
     }
     render() {
         const menu = (
@@ -43,6 +48,8 @@ export default class Right extends React.Component<any,any>{
                         {/* <Icon type="down" /> */}
                     </a>
                 </Dropdown>
+                <CommonModal title={'登录'} visible={this.state.visible} component={ <LoginModal/>} onOk={this.hideModal} onCancel={this.hideModal} footer={''}/>
+
             </Col>
         </Row>
         );

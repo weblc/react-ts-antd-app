@@ -3,7 +3,7 @@ import styles from "./body.module.less";
 import { Row, Col } from "antd";
 
 interface Test {
-    title:String,
+    title?:String,
     icon:''
 }
 

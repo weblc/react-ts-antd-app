@@ -1,0 +1,63 @@
+import React, { Component } from "react";
+
+import { Modal, Button } from "antd";
+
+interface modalProps {
+    visible: boolean;
+    title?: string;
+    component: any;
+    maskClosable?: boolean;
+    onOk: () => void;
+    onCancel: () => void;
+    footer: null|string;
+}
+
+const Footer: React.FC<any> = ({ onOk, onCancel }) => {
+    return (
+        <div>
+            <Button key="submit" type="primary" onClick={onCancel}>
+                确定
+            </Button>
+            ,
+            <Button key="back" onClick={onOk}>
+                取消
+            </Button>
+            ,
+        </div>
+    );
+};
+
+export default class CommonModal extends Component<modalProps> {
+    static defaultProps = {
+        visible: false,
+        title: "标题",
+        component: "",
+        maskClosable: true,
+        footer: null
+    };
+
+    constructor(props: modalProps) {
+        super(props);
+        this.state = {};
+    }
+
+    componentDidMount(): void {}
+    componentWillUnmount(): void {}
+    render() {
+        return (
+            <Modal
+                {...this.props}
+                footer={
+                    this.props.footer===''?null:this.props.footer || (
+                        <Footer
+                            onOk={this.props.onOk}
+                            onCancel={this.props.onCancel}
+                        />
+                    )
+                }
+            >
+                {this.props.component}
+            </Modal>
+        );
+    }
+}

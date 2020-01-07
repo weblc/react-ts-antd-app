@@ -5,7 +5,7 @@ import { asyncComponent} from '@/components/AsyncComponent'
 // import Login from '@/views/login'
 
 const Home = asyncComponent(()=>import('@/views/home'))
-const Login = asyncComponent(()=>import('@/views/login'))
+
 export default class Layout extends React.Component{
   constructor(props:any){
     super(props);
@@ -17,7 +17,6 @@ export default class Layout extends React.Component{
     return(
         <BrowserRouter>
         <Switch>
-          <Route path="/login" component={ Login } />
           <Route exact path="/" component={ Home } />
         </Switch>
 

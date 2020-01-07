@@ -4,6 +4,7 @@ import { Row, Col, Card } from "antd";
 import Movies from "@/components/movies";
 import Nav from "./nav";
 import styles from "./body.module.less";
+import {getTest} from '@/api/index'
 
 interface movie {
     title: string;
@@ -105,7 +106,11 @@ export default class Body extends Component<any, any> {
         };
     }
 
-    componentDidMount(): void {}
+    componentDidMount(): void {
+        getTest().then((res)=>{
+            console.log(res)
+        })
+    }
     componentWillUnmount(): void {}
     render() {
 
