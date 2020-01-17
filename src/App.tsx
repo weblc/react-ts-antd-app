@@ -1,16 +1,19 @@
 import React from 'react';
 import { Switch,Route,BrowserRouter } from 'react-router-dom';
-import { asyncComponent} from '@/components/AsyncComponent'
-const Home = asyncComponent(()=>import('@/views/home'))
-const App: React.FC = () => {
 
+import { getRouterList } from '@/router'
+const routerList: any = getRouterList()
+
+const App: React.FC = () => {
+    const Layout = routerList['/'].component
   return (
     <BrowserRouter>
     <Switch>
-      <Route path="/user" render={()=><div>login</div>} />
-      <Route exact path="/" component={ Home } />
-    </Switch>
+      <Route path='/'  render={(props) => {
+          return  <Layout {...props} routerList={routerList}/>
 
+        }}/>
+    </Switch>
     </BrowserRouter>
 
 

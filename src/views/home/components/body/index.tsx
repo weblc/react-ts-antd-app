@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import { useHistory } from "react-router-dom";
 import { Row, Col, Card } from "antd";
 import Movies from "@/components/movies";
 import Nav from "./nav";
@@ -108,8 +109,14 @@ export default class Body extends Component<any, any> {
 
     componentDidMount(): void {
         getTest().then((res)=>{
-            console.log(res)
+
         })
+    }
+    test=(item:any):void=>{
+
+        this.props.history.push({
+            pathname: '/movie/details',
+          });
     }
     componentWillUnmount(): void {}
     render() {
@@ -124,8 +131,10 @@ export default class Body extends Component<any, any> {
                     {ItemList.map((item,index) => {
                         return (
                             <Col lg={4} sm={6} key={index} >
-                                <Row type="flex" justify="center">
-                                    <Movies {...item} />
+                                <Row type="flex" justify="center" onClick={this.test.bind(this,item)} >
+                                <Movies {...item} />
+
+
                                 </Row>
                             </Col>
                         );

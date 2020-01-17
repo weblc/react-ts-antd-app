@@ -27,7 +27,7 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
                         rules: [
                             {
                                 required: true,
-                                message: "Please input your username!"
+                                message: "请输入账号!"
                             }
                         ]
                     })(
@@ -47,7 +47,7 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
                         rules: [
                             {
                                 required: true,
-                                message: "Please input your Password!"
+                                message: "请输入密码!"
                             }
                         ]
                     })(

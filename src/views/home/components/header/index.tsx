@@ -15,10 +15,10 @@ const mainLayout: React.FC = () => {
             align="middle"
             className={styles.header}
         >
-            <Col span={8}>
+            <Col span={6}>
                 <Menu />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
                 <HeaderDropdown />
             </Col>
         </Row>
