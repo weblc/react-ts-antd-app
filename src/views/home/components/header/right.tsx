@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React  from "react";
 import { Row, Col, Input,Button } from "antd";
-import SvgIcon from "@/components/iconSvg";
-import { Menu, Dropdown } from "antd";
+import {SvgIcon} from "@/components";
+
 
 import LoginModal from "@/views/account/login";
 import CommonModal from "@/components/commonModal";

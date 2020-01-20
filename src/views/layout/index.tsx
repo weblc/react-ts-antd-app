@@ -1,10 +1,7 @@
 import React from "react";
 import { match } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { asyncComponent } from "@/components/AsyncComponent";
 import { getRoutes } from "@/utils";
-// import Home from '@/views/home'
-// import Login from '@/views/login'
 
 interface LayoutProps {
     history: History;

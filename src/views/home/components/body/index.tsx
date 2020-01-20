@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import { useHistory } from "react-router-dom";
-import { Row, Col, Card } from "antd";
-import Movies from "@/components/movies";
+
+import { Row, Col } from "antd";
+import {Movies} from "@/components";
 import Nav from "./nav";
 import styles from "./body.module.less";
 import {getTest} from '@/api/index'

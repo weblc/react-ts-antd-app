@@ -28,7 +28,7 @@ const DefaultProps: defaultPropsInterface = {
     timeout: 20000, // ms
     delay: 300 // ms
 };
-export function asyncComponent(component: any, callback?: () => void) {
+export default function AsyncComponent(component: any, callback?: () => void) {
     return Loadable({
         ...DefaultProps,
         loader: component

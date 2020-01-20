@@ -1,14 +1,14 @@
-import { asyncComponent } from "@/components/AsyncComponent";
+import { AsyncComponent } from "@/components";
 
 
 
-const Home = asyncComponent(() =>
+const Home = AsyncComponent(() =>
     import(/* webpackChunkName:'Home' */ "@/views/home")
 );
-const Layout = asyncComponent(() =>
+const Layout = AsyncComponent(() =>
     import(/* webpackChunkName:'Layout' */ "@/views/layout")
 );
-const MovieDetails = asyncComponent(() =>
+const MovieDetails = AsyncComponent(() =>
     import(/* webpackChunkName:'MovieDetails' */ "@/views/movieDetails")
 );
 export const getRouterList = () => {
