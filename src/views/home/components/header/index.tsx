@@ -18,7 +18,7 @@ const mainLayout: React.FC = () => {
             <Col span={6}>
                 <Menu />
             </Col>
-            <Col span={6}>
+            <Col span={8}>
                 <HeaderDropdown />
             </Col>
         </Row>
