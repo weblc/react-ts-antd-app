@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form,  Input, Button, Checkbox } from "antd";
 
  class Register extends Component<any> {
     constructor(props: any) {
@@ -21,7 +21,7 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form  className="login-form">
                 <Form.Item>
                     {getFieldDecorator("username", {
                         rules: [
@@ -32,12 +32,7 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
                         ]
                     })(
                         <Input
-                            prefix={
-                                <Icon
-                                    type="user"
-                                    style={{ color: "rgba(0,0,0,.25)" }}
-                                />
-                            }
+                            
                             placeholder="Username"
                         />
                     )}
@@ -52,12 +47,7 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
                         ]
                     })(
                         <Input
-                            prefix={
-                                <Icon
-                                    type="lock"
-                                    style={{ color: "rgba(0,0,0,.25)" }}
-                                />
-                            }
+                            
                             type="password"
                             placeholder="Password"
                         />
@@ -77,4 +67,4 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
     }
 }
 
-export default Form.create({ })(Register);
+export default Register

@@ -29,15 +29,15 @@ export default class Right extends React.Component<any, any> {
         const { Search } = Input;
 
         return (
-            <Row type="flex" justify="end" align="middle">
-                <Col span={12}>
+            <Row  justify="end" align="middle">
+                <Col >
                     <Search
                         placeholder="请输入....."
                         onSearch={value => console.log(value)}
                         style={{ width: 200,marginRight:50 }}
                     />
                 </Col>
-                 <Col span={8}>
+                 <Col >
                     <Button type="link" onClick={()=>{this.showModal("loginVisible")}}>登录</Button>
                     <SvgIcon type="icon-tubiaozhizuo-" />
 

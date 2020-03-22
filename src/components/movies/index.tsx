@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Card, Rate, Icon, Statistic,Row } from "antd";
-
+import { Card, Rate, Statistic,Row } from "antd";
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 const { Meta } = Card;
 
 interface movie {
@@ -27,11 +27,11 @@ export default class Movies extends Component<movie> {
                 style={{ width: "90%", marginBottom: 20 }}
                 cover={<img alt="example" src={this.props.poster} />}
             >
-                <Row style={{ marginBottom: 20}} type="flex" justify="space-between">
+                <Row style={{ marginBottom: 20}} justify="space-between">
                 <Rate
                         allowHalf
                         disabled
-                        character={<Icon type="fire" />}
+                        character={<StarOutlined  />}
                         defaultValue={this.props.hot}
                     />
                     <Statistic style={{display:'inline-block'}}

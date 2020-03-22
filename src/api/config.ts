@@ -1,13 +1,14 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "",
+    baseURL: "/mock",
     timeout: 10000,
     // headers: { "X-Custom-Header": "foobar" }
 });
 
 instance.interceptors.request.use(
     config=>{
+     
         return config;
     },
     err =>{
@@ -16,11 +17,12 @@ instance.interceptors.request.use(
     }
 )
 
-axios.interceptors.response.use(
-    data => {
-      return data;
+instance.interceptors.response.use(
+    response => {
+      return response.data;
     },
     err => {
+      console.log(err)
       if (err.response.status === 504 || err.response.status === 404) {
         console.log("服务器被吃了⊙﹏⊙∥");
       } else if (err.response.status === 401) {

@@ -5,7 +5,7 @@ import { Row, Col } from "antd";
 import {Movies} from "@/components";
 import Nav from "./nav";
 import styles from "./body.module.less";
-import {getTest} from '@/api/index'
+
 
 interface movie {
     title: string;
@@ -108,9 +108,10 @@ export default class Body extends Component<any, any> {
     }
 
     componentDidMount(): void {
-        getTest().then((res)=>{
+        // getTest().then((res)=>{
 
-        })
+        // });
+       
     }
     test=(item:any):void=>{
 
@@ -127,11 +128,11 @@ export default class Body extends Component<any, any> {
                     <Nav />
                 </Col>
                 {/* <Row type="flex">{ItemList(this.state.counts)}</Row> */}
-                <Row type="flex">
+                <Row >
                     {ItemList.map((item,index) => {
                         return (
                             <Col lg={4} sm={6} key={index} >
-                                <Row type="flex" justify="center" onClick={this.test.bind(this,item)} >
+                                <Row justify="center" onClick={this.test.bind(this,item)} >
                                 <Movies {...item} />
 
 

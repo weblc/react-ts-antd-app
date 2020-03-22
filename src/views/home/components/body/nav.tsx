@@ -29,7 +29,7 @@ export default class Nav extends Component {
     componentWillUnmount(): void {}
     render() {
         return (
-            <Row type="flex" justify="center" className={styles.nav_style}>
+            <Row  justify="center" className={styles.nav_style}>
                 {
                     titleLists.map((ele:Test,index:number):any =>{
                     return  <Col span={2} className="text-center" key={index}>

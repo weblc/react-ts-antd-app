@@ -10,7 +10,7 @@ import styles from "./header.module.less";
 const mainLayout: React.FC = () => {
     return (
         <Row
-            type="flex"
+           
             justify="space-between"
             align="middle"
             className={styles.header}
@@ -18,7 +18,7 @@ const mainLayout: React.FC = () => {
             <Col span={6}>
                 <Menu />
             </Col>
-            <Col span={8}>
+            <Col >
                 <HeaderDropdown />
             </Col>
         </Row>

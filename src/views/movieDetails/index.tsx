@@ -31,7 +31,7 @@ export default class MovieDetails extends Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <Row type="flex" justify="space-between">
+                <Row  justify="space-between">
                     <Col span={14}>
                         <Row >
                             <Col  span={24} className="m_b_max">

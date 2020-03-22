@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "../movie.module.less";
-import { Comment, Icon, Tooltip, Avatar, List } from "antd";
+import { Comment, Tooltip, Avatar, List } from "antd";
 import moment from "moment";
 
 interface IState {
