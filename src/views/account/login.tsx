@@ -12,9 +12,9 @@ class Login extends Component<any> {
 
     componentDidMount(): void { }
     componentWillUnmount(): void { }
-    
+
     onFinish = (values:any)=> {
-        userLogin(values).then((res)=>{
+        userLogin(values).then((res:any)=>{
             console.log(res)
         })
     };
