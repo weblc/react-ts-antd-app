@@ -1,4 +1,5 @@
 import React  from "react";
+import { connect } from "react-redux"
 import { Row, Col, Input,Button } from "antd";
 import {SvgIcon} from "@/components";
 
@@ -7,7 +8,7 @@ import LoginModal from "@/views/account/login";
 import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
 
-export default class Right extends React.Component<any, any> {
+ class Right extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -16,15 +17,16 @@ export default class Right extends React.Component<any, any> {
             registerVisible: false
         };
     }
-   
+
     showModal = (key:string):void=>{
         this.setState({ [key]: true });
     }
     hideModal = (register:string):void=> {
-      
+
         this.setState({ [register]: false });
     };
     render() {
+        console.log(this.props)
 
         const { Search } = Input;
 
@@ -36,6 +38,9 @@ export default class Right extends React.Component<any, any> {
                         onSearch={value => console.log(value)}
                         style={{ width: 200,marginRight:50 }}
                     />
+                </Col>
+                <Col >
+                    <div> {this.props.user.userName?this.props.user.userName:"weq"}</div>
                 </Col>
                  <Col >
                     <Button type="link" onClick={()=>{this.showModal("loginVisible")}}>登录</Button>
@@ -63,3 +68,11 @@ export default class Right extends React.Component<any, any> {
         );
     }
 }
+
+const stateMap = (state:any)=>{
+    return {
+        user: state.user.baseInfo
+    }
+}
+
+export default connect(stateMap)(Right)

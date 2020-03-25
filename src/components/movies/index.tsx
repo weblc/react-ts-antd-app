@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Rate, Statistic,Row } from "antd";
-import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import { StarOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 interface movie {

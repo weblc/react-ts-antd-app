@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Form,  Input, Button, Checkbox } from "antd";
+import { Form,  Input, Button  } from "antd";
 
  class Register extends Component<any> {
     constructor(props: any) {
@@ -32,7 +32,7 @@ import { Form,  Input, Button, Checkbox } from "antd";
                         ]
                     })(
                         <Input
-                            
+
                             placeholder="Username"
                         />
                     )}
@@ -47,7 +47,7 @@ import { Form,  Input, Button, Checkbox } from "antd";
                         ]
                     })(
                         <Input
-                            
+
                             type="password"
                             placeholder="Password"
                         />

@@ -7,7 +7,7 @@
 import { createStore, combineReducers,applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 
-import userReducer from './modules/user'
+import userReducer from './modules/user/reducer'
 import appReducer from './modules/app'
 const { composeWithDevTools } = require('redux-devtools-extension');
 

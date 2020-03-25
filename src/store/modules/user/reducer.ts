@@ -3,42 +3,35 @@
  * @Author: Lao_c
  * @Date: 2020-03-24 13:36:19
  */
+import * as types from "./types";
 
+const defaultStore = {
+    baseInfo: {
+        userName: "",
+        age: "",
+        role: "",
+        sex: ""
+    }
+};
 
-const types = {
-    SET_USER: 'SET_USER',
-    USER_LOGIN:'USER_LOGIN'
-  }
-
-  const defaultStore = {
-    user:{
-        userName: '',
-        age:'',
-        role:'',
-        sex:''
-    },
-
-  }
-
-
-const userRedux = (state = defaultStore,action:any)=>{
-    const { type, payload } = action
+const userRedux = (state = defaultStore, action: any) => {
+    const { type, payload } = action;
     switch (type) {
         case types.USER_LOGIN:
-        return {
-            ...state,
-        }
+            return {
+
+                ...state
+            };
         case types.SET_USER:
             return {
-                user:payload.user,
                 ...state,
+                baseInfo:payload
+
             };
-          default:
+        default:
             return state;
-
     }
-}
-
+};
 
 // /**
 //  * reducer 纯函数 接收一个state,返回一个新的state
@@ -59,5 +52,4 @@ const userRedux = (state = defaultStore,action:any)=>{
 //     return res
 //   }
 
-
-  export default userRedux
+export default userRedux;

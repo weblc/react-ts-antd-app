@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux"
 import { Form, Input, Button, Checkbox } from "antd";
+import {user_login} from '@/store/modules/user/action'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 import {userLogin} from '@/api/index'
@@ -15,7 +16,7 @@ class Login extends Component<any> {
 
     onFinish = (values:any)=> {
         userLogin(values).then((res:any)=>{
-            console.log(res)
+            this.props.setUserAccount(values)
         })
     };
     render() {
@@ -46,10 +47,9 @@ class Login extends Component<any> {
                     <Form.Item name="remember" valuePropName="checked" noStyle>
                         <Checkbox>记住密码</Checkbox>
                     </Form.Item>
-
-                    <a className="login-form-forgot" href="">
+                    <a href="">
                         忘记密码
-              </a>
+                    </a>
                 </Form.Item>
 
                 <Form.Item>
@@ -62,4 +62,21 @@ class Login extends Component<any> {
     }
 }
 
-export default Login;
+var mapState = (state:any) => {
+    　　return {
+    　　　　user: state.user
+    　　}
+    }
+    const mapActions = (dispatch:any) => {
+        return {
+            setUserAccount: (payload:any) => dispatch(user_login({
+                userName: "刘德华",
+                age: "",
+                role: "",
+                sex: ""
+            })),
+        }
+      }
+
+
+export default connect(mapState,mapActions)(Login);
