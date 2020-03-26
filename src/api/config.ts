@@ -1,35 +1,34 @@
-import axios from "axios";
-
+import axios,{AxiosResponse,AxiosError } from "axios";
+import { message  } from 'antd';
 const instance = axios.create({
     baseURL: "/mock",
     timeout: 10000,
     // headers: { "X-Custom-Header": "foobar" }
 });
 
+export interface ResponseData {
+    code: number,
+    data: any,
+    msg: string,
+    success: boolean
+  }
+
 instance.interceptors.request.use(
     config=>{
-     
+
         return config;
     },
     err =>{
-        console.log('网络错误')
         return Promise.reject(err)
     }
 )
 
 instance.interceptors.response.use(
-    response => {
+    (response: AxiosResponse) => {
       return response.data;
     },
-    err => {
-      console.log(err)
-      if (err.response.status === 504 || err.response.status === 404) {
-        console.log("服务器被吃了⊙﹏⊙∥");
-      } else if (err.response.status === 401) {
-        console.log("登录信息失效⊙﹏⊙∥");
-      } else if (err.response.status === 500) {
-        console.log("服务器开小差了⊙﹏⊙∥");
-      }
+    (err:AxiosError) => {
+      message.error(err)
       return Promise.reject(err);
     }
   );

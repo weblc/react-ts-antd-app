@@ -10,7 +10,8 @@ const defaultStore = {
         userName: "",
         age: "",
         role: "",
-        sex: ""
+        sex: "",
+        token:''
     }
 };
 

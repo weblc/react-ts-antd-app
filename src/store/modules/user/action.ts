@@ -5,25 +5,27 @@
  */
 import * as actionTypes from "./types"
 
+import api from '@/api'
 
-
- const set_use =( data:any) => {
+ const set_user =( payload:any) => {
     return {
       type: actionTypes.SET_USER,
-      data,
+      payload,
     }
   }
 
  const user_login = ( data:any)  => {
     return (dispatch:any) => {
-      setTimeout(() => {
-          console.log(23)
-        dispatch(set_use(data))
-      }, 3000)
+        return new Promise((resolve)=>{
+            api.user.userLogin(data).then((res)=>{
+                dispatch(set_user(res.data))
+                resolve(res)
+            })
+        })
     }
   }
 
   export {
-    set_use,
+    set_user,
     user_login
   }

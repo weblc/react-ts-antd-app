@@ -4,7 +4,7 @@ import { Form, Input, Button, Checkbox } from "antd";
 import {user_login} from '@/store/modules/user/action'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-import {userLogin} from '@/api/index'
+
 class Login extends Component<any> {
     constructor(props: any) {
         super(props);
@@ -14,10 +14,12 @@ class Login extends Component<any> {
     componentDidMount(): void { }
     componentWillUnmount(): void { }
 
-    onFinish = (values:any)=> {
-        userLogin(values).then((res:any)=>{
-            this.props.setUserAccount(values)
-        })
+     onFinish =async (values:any)=> {
+      this.props.userLoginHandle(values).then((res:any)=>{
+            console.log(res)
+      })
+
+
     };
     render() {
         return (
@@ -47,9 +49,6 @@ class Login extends Component<any> {
                     <Form.Item name="remember" valuePropName="checked" noStyle>
                         <Checkbox>记住密码</Checkbox>
                     </Form.Item>
-                    <a href="">
-                        忘记密码
-                    </a>
                 </Form.Item>
 
                 <Form.Item>
@@ -69,12 +68,7 @@ var mapState = (state:any) => {
     }
     const mapActions = (dispatch:any) => {
         return {
-            setUserAccount: (payload:any) => dispatch(user_login({
-                userName: "刘德华",
-                age: "",
-                role: "",
-                sex: ""
-            })),
+            userLoginHandle: (payload:any) =>dispatch(user_login(payload)),
         }
       }
 
