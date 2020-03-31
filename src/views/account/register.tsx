@@ -42,7 +42,7 @@ import { Form,  Input, Button  } from "antd";
                         rules: [
                             {
                                 required: true,
-                                message: "请输入密码!"
+                                message: "1请输入密码!"
                             }
                         ]
                     })(
