@@ -47,13 +47,13 @@ class Login extends Component<any> {
                 </Form.Item>
                 <Form.Item>
                     <Form.Item name="remember" valuePropName="checked" noStyle>
-                        <Checkbox>记住密码 分支1</Checkbox>
+                        <Checkbox>记住密码 分支1 1</Checkbox>
                     </Form.Item>
                 </Form.Item>
 
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button">
-                        登陆分支1
+                        登陆分支11 1
                     </Button>
                 </Form.Item>
             </Form>
