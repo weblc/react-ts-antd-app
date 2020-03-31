@@ -1,13 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Row, Col, Input, Button } from "antd";
+import { Row,  Input, Button } from "antd";
 
 import { SvgIcon } from "@/components";
 
 import LoginModal from "@/views/account/login";
 import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
-import UserInfo from "@/views/account/userInfo";
+import {UserInfo} from "@/views/account/userInfo";
+// interface User{
+//     test:string
+// }
+// const User:User = {test:'12313'}
 class HandleWrapper extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -31,7 +35,7 @@ class HandleWrapper extends React.Component<any, any> {
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
                 {user.token ? (
-                    <UserInfo user={user} />
+                   <UserInfo user={user}/>
                 ) : (
                     <div>
                         <Button

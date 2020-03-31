@@ -10,7 +10,7 @@ import Mock from 'mockjs'
             sex:1,
             age:20,
             name:'大番薯',
-            token:Mock.Random.string(10,16 )
+            token:Mock.Random.string(10,16 ),
 
         }
     }

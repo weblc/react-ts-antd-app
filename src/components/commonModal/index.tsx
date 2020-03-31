@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 import { Modal, Button } from "antd";
+interface test {
+    onOk: () => void;
+    onCancel: () => void;
+}
 
 interface modalProps {
     visible: boolean;
@@ -12,7 +16,7 @@ interface modalProps {
     footer: null|string;
 }
 
-const Footer: React.FC<any> = ({ onOk, onCancel }) => {
+const Footer: React.FC<test> = ({ onOk, onCancel }) => {
     return (
         <div>
             <Button key="submit" type="primary" onClick={onCancel}>

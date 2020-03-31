@@ -6,7 +6,7 @@
 import * as actionTypes from "./types"
 
 import api from '@/api'
-
+import {setStorage} from '@/utils'
  const set_user =( payload:any) => {
     return {
       type: actionTypes.SET_USER,
@@ -18,8 +18,11 @@ import api from '@/api'
     return (dispatch:any) => {
         return new Promise((resolve)=>{
             api.user.userLogin(data).then((res)=>{
+                console.log(res)
+                console.log(res.message)
+                // setStorage()
                 dispatch(set_user(res.data))
-                resolve(res)
+                resolve(res.data)
             })
         })
     }

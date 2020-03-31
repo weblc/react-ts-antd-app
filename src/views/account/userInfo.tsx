@@ -3,21 +3,33 @@
  * @Author: Lao_c
  * @Date: 2020-03-26 13:50:56
  */
-import React from 'react';
+import React from "react";
+import { Row, Col } from "antd";
+import { Menu, Dropdown } from "antd";
+import { DownOutlined } from '@ant-design/icons';
+import { User } from "@/types/user";
 
+interface userProps {
+    user: User;
+}
 
-
-
-const UserInfo:React.FC<any>= ({user}) => {
-
-
-    console.log(user)
-
-  return (
-    <div>
-        <span>{user.name}</span>
-    </div>
-  );
+export const UserInfo: React.FC<userProps> = ({ user }) => {
+  
+    const menu = (
+        <Menu >
+          <Menu.Item key="1">我的</Menu.Item>
+          <Menu.Item key="2">退出登录</Menu.Item>
+        </Menu>
+      );
+    return (
+        <Row>
+            <Col>
+                <Dropdown overlay={menu}  >
+                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                        {user.name} <DownOutlined />
+                    </a>
+                </Dropdown>
+            </Col>
+        </Row>
+    );
 };
-
-export default UserInfo;

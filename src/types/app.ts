@@ -1,4 +1,8 @@
-declare module 'slash2';
-declare module '*.css';
 
-  
+
+export interface ResponseData<T> {
+    code: number,
+    data: T,
+    message: string,
+    success: boolean
+  }

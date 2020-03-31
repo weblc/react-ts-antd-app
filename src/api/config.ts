@@ -1,36 +1,32 @@
-import axios,{AxiosResponse,AxiosError } from "axios";
-import { message  } from 'antd';
+import axios, {  AxiosError } from "axios";
+import { message } from "antd";
+import { ResponseData } from "@/types/app";
 const instance = axios.create({
     baseURL: "/mock",
     timeout: 10000,
     // headers: { "X-Custom-Header": "foobar" }
 });
 
-export interface ResponseData {
-    code: number,
-    data: any,
-    msg: string,
-    success: boolean
-  }
-
 instance.interceptors.request.use(
-    config=>{
-
+    config => {
         return config;
     },
-    err =>{
-        return Promise.reject(err)
+    err => {
+        return Promise.reject(err);
     }
-)
-
+);
 instance.interceptors.response.use(
-    (response: AxiosResponse) => {
-      return response.data;
+    (response) => {
+        if (!response.data) {
+            return Promise.resolve(response);
+        }
+        return response.data
     },
-    (err:AxiosError) => {
-      message.error(err)
-      return Promise.reject(err);
+    (error: AxiosError) => {
+
+        message.error(error);
+        return Promise.reject(error);
     }
-  );
+);
 
 export default instance;

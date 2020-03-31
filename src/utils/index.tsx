@@ -46,3 +46,16 @@ export function getRoutes (path: string, routerData: any): Array<any> {
       }
     })
   }
+
+
+
+
+export const setStorage = (key:string,val:any):void=>{
+    localStorage.setItem(key,val)
+}
+export const clearStorage = ():void=>{
+    localStorage.clear()
+}
+export const getStorage = (key:string):void=>{
+    localStorage.getItem(key)
+}
