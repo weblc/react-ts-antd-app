@@ -42,7 +42,7 @@ import { Form,  Input, Button  } from "antd";
                         rules: [
                             {
                                 required: true,
-                                message: "请输入密码! 分支二 2"
+                                message: "请输入密码!"
                             }
                         ]
                     })(
@@ -59,7 +59,7 @@ import { Form,  Input, Button  } from "antd";
                         htmlType="submit"
                         className="login-form-button"
                     >
-                        登录分支2 2
+                        登录
                     </Button>
                 </Form.Item>
             </Form>
