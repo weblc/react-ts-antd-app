@@ -59,7 +59,7 @@ import { Form,  Input, Button  } from "antd";
                         htmlType="submit"
                         className="login-form-button"
                     >
-                        注册
+                        注册1
                     </Button>
                 </Form.Item>
             </Form>
