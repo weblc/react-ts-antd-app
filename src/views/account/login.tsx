@@ -53,7 +53,7 @@ class Login extends Component<any> {
 
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button">
-                        登陆11
+                        登陆
                     </Button>
                 </Form.Item>
             </Form>
