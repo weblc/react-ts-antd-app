@@ -10,6 +10,18 @@ interface user {
     user:string,
     password:string
 }
+/**
+ * 登陆
+ * @param params 
+ */
 export const userLogin = (params:user)=>{
     return xhr.post(`/api/user/login`,params)
+}
+
+/**
+ *  获取用户信息
+ * @param params 
+ */
+export const getUserInfo = (params:string)=>{
+    return xhr.post(`/api/user/getUserInfo`,params)
 }

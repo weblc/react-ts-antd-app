@@ -20,7 +20,7 @@ const reduer = combineReducers({
  /* eslint-disable no-underscore-dangle */
  const store = createStore(
     reduer, /* preloadedState, */
-    compose(applyMiddleware(reduxThunk),composeWithDevTools())
+    compose(applyMiddleware(reduxThunk),composeWithDevTools?composeWithDevTools():'')
 
    );
    /* eslint-enable */

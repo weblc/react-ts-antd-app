@@ -14,13 +14,12 @@ import {setStorage} from '@/utils'
     }
   }
 
+  
  const user_login = ( data:any)  => {
     return (dispatch:any) => {
         return new Promise((resolve)=>{
             api.user.userLogin(data).then((res)=>{
-                console.log(res)
-                console.log(res.message)
-                // setStorage()
+                setStorage('token',res.data.token)
                 dispatch(set_user(res.data))
                 resolve(res.data)
             })

@@ -10,10 +10,15 @@ const routerList: any = getRouterList();
 
 const App: React.FC = (props: any) => {
     const Layout = routerList["/"].component;
+    const UserLayout = routerList['/user'].component
+    console.log(routerList)
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <Switch>
+                    <Route path='/user' render={(props:any) => {
+                            return (<UserLayout {...props} routerList={routerList} />)
+                    }} />
                     <Route
                         path="/"
                         render={(props: any) => {

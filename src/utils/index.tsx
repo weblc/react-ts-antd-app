@@ -33,7 +33,10 @@ export function getRoutes (path: string, routerData: any): Array<any> {
     // Replace path to '' eg. path='user' /user/name => name
     routes = routes.map(item => item.replace(path, ''))
     // Get the route to be rendered to remove the deep rendering
-    const renderArr = getRenderArr(routes)
+   
+    // const renderArr = getRenderArr(routes)
+    const renderArr =routes
+    
     // Conversion and stitching parameters
     return renderArr.map(item => {
       const exact = !routes.some(
@@ -56,6 +59,6 @@ export const setStorage = (key:string,val:any):void=>{
 export const clearStorage = ():void=>{
     localStorage.clear()
 }
-export const getStorage = (key:string):void=>{
-    localStorage.getItem(key)
+export const getStorage = (key:string)=>{
+    return localStorage.getItem(key)
 }

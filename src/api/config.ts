@@ -1,6 +1,6 @@
 import axios, {  AxiosError } from "axios";
 import { message } from "antd";
-import { ResponseData } from "@/types/app";
+
 const instance = axios.create({
     baseURL: "/mock",
     timeout: 10000,
@@ -20,7 +20,11 @@ instance.interceptors.response.use(
         if (!response.data) {
             return Promise.resolve(response);
         }
-        return response.data
+        if(response.data.success){
+            message.success(response.data.message)
+            return response.data
+        }
+        
     },
     (error: AxiosError) => {
 

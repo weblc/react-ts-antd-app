@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 
 import { Row, Col } from "antd";
-import {Movies} from "@/components";
+import { Movies } from "@/components";
 import Nav from "./nav";
 import styles from "./body.module.less";
 
@@ -77,7 +77,7 @@ const ItemList: movie[] = [
         poster:
             "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
         score: 7.9,
-        hot:0.5
+        hot: 0.5
     },
     {
         title: "敏狗的故事",
@@ -111,15 +111,15 @@ export default class Body extends Component<any, any> {
         // getTest().then((res)=>{
 
         // });
-       
-    }
-    test=(item:any):void=>{
 
-        this.props.history.push({
-            pathname: '/movie/details',
-          });
     }
-    componentWillUnmount(): void {}
+    test = (item: any): void => {
+
+       this.props.history.push({
+            pathname: '/movie/details',
+        });
+    }
+    componentWillUnmount(): void { }
     render() {
 
         return (
@@ -129,11 +129,11 @@ export default class Body extends Component<any, any> {
                 </Col>
                 {/* <Row type="flex">{ItemList(this.state.counts)}</Row> */}
                 <Row >
-                    {ItemList.map((item,index) => {
+                    {ItemList.map((item, index) => {
                         return (
                             <Col lg={4} sm={6} key={index} >
-                                <Row justify="center" onClick={this.test.bind(this,item)} >
-                                <Movies {...item} />
+                                <Row justify="center" onClick={this.test.bind(this, item)} >
+                                    <Movies {...item} />
 
 
                                 </Row>
