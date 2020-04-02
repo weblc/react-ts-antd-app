@@ -6,11 +6,13 @@
 export interface baseUser{
     name:string,
     sex:string,
-    age:number
+    age:number,
+    avatar:string
 }
 
 export interface User {
     name:string,
     sex:string,
     age:number,
+    avatar?:string
 }

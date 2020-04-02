@@ -5,8 +5,8 @@
  */
 import React from "react";
 import { Row, Col } from "antd";
-import { Menu, Dropdown } from "antd";
-import { DownOutlined } from '@ant-design/icons';
+import { Menu, Dropdown, Avatar } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 import { User } from "@/types/user";
 import { useHistory } from "react-router-dom";
 interface userProps {
@@ -14,26 +14,32 @@ interface userProps {
 }
 
 export const UserInfo: React.FC<userProps> = ({ user }) => {
-    const history = useHistory()
-    const enterMineRoom= ():void=>{
+    const history = useHistory();
+    const enterMineRoom = (): void => {
         history.push({
-            pathname: '/user',
+            pathname: "/user",
         });
-    }
+    };
     const menu = (
-        <Menu >
-          <Menu.Item key="1" onClick={enterMineRoom}>我的</Menu.Item>
-          <Menu.Item key="2">退出登录</Menu.Item>
+        <Menu>
+            <Menu.Item key="1" onClick={enterMineRoom}>
+                我的
+            </Menu.Item>
+            <Menu.Item key="2">退出登录</Menu.Item>
         </Menu>
-      );
+    );
+
     return (
         <Row>
             <Col>
-                <Dropdown overlay={menu}  >
+                <Dropdown overlay={menu}>
+                    <Row align="middle">
+                    <Avatar src={user.avatar} />
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            {user.name} <DownOutlined />
+                        </a>
 
-                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        {user.name} <DownOutlined />
-                    </a>
+                    </Row>
                 </Dropdown>
             </Col>
         </Row>
