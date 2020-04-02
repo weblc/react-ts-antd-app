@@ -17,10 +17,10 @@ const defaultStore = {
 
 const userRedux = (state = defaultStore, action: any) => {
     const { type, payload } = action;
+    console.log(payload)
     switch (type) {
         case types.USER_LOGIN:
             return {
-
                 ...state
             };
         case types.SET_USER:

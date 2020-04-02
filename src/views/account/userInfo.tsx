@@ -30,6 +30,7 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
         <Row>
             <Col>
                 <Dropdown overlay={menu}  >
+
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                         {user.name} <DownOutlined />
                     </a>

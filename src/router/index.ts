@@ -12,7 +12,7 @@ const Layout = AsyncComponent(() =>
 const MovieDetails = AsyncComponent(() =>
     import(/* webpackChunkName:'MovieDetails' */ "@/views/movieDetails")
 );
-const User = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/layout"))
+const Center = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/userLayout"))
 const Collection = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/colloction"))
 const Xixi = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/xixi"))
 export const getRouterList = () => {
@@ -31,7 +31,8 @@ export const getRouterList = () => {
         },
         "/user":{
             name:"用户中心",
-            component:User,
+            exact:true,
+            component:Center,
         },
         "/user/collection":{
             name:"收藏12",

@@ -11,7 +11,7 @@ const userLogin = Mock.mock('/mock/api/user/login','post',(option)=>{
             age:20,
             name:'大番薯',
             token:Mock.Random.string(10,16 ),
-
+            img:"@img(100x100,'#4A7BF7')",
         }
     }
  })
@@ -27,6 +27,7 @@ const userInfo = Mock.mock('/mock/api/user/getUserInfo','post',(option)=>{
             age:20,
             name:'大番薯',
             token:Mock.Random.string(10,16 ),
+            img:Mock.Random.dataImage()
 
         }
     }

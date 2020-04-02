@@ -14,7 +14,7 @@ import {setStorage} from '@/utils'
     }
   }
 
-  
+
  const user_login = ( data:any)  => {
     return (dispatch:any) => {
         return new Promise((resolve)=>{

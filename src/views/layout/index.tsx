@@ -4,7 +4,7 @@ import { set_user } from '@/store/modules/user/action'
 import { match } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { getRoutes ,getStorage} from "@/utils";
-import api from '@/api'
+
 interface LayoutProps {
     history: History;
     match: match;
@@ -18,22 +18,13 @@ class Layout extends React.Component<LayoutProps> {
         super(props);
         this.state = {};
     }
-    checkLoginStatus = ()=>{
-        const token = getStorage('token')
-        if(token){
-            api.user.getUserInfo(token).then((res)=>{
-               
-               this.props.set_user(res.data)
-            })
-        }
 
-    }
     render() {
-        
+
 
         const { match, routerList } = this.props;
         const routes = getRoutes(match.path, routerList);
-        this.checkLoginStatus()
+
 
         return (
             <Switch>
