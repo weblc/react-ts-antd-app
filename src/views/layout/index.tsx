@@ -3,11 +3,11 @@ import { connect } from "react-redux"
 import { set_user } from '@/store/modules/user/action'
 import { match } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { getRoutes ,getStorage} from "@/utils";
+import { getRoutes } from "@/utils";
 
 interface LayoutProps {
     history: History;
-    match: match;
+    match: match;       
     userInfo: string;
     routerList: any;
     location: Location;

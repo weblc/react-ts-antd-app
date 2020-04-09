@@ -9,6 +9,7 @@ import { Menu, Dropdown, Avatar } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { User } from "@/types/user";
 import { useHistory } from "react-router-dom";
+import { Space } from "@/components";
 interface userProps {
     user: User;
 }
@@ -33,13 +34,15 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
         <Row>
             <Col>
                 <Dropdown overlay={menu}>
-                    <Row align="middle">
-                    <Avatar src={user.avatar} />
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                            {user.name} <DownOutlined />
-                        </a>
-
+                    <Row>
+                    <Space>
+                            <Avatar src={user.avatar} />
+                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                {user.name} <DownOutlined />
+                            </a>
+                        </Space>
                     </Row>
+
                 </Dropdown>
             </Col>
         </Row>

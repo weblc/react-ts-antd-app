@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { match } from "react-router";
 import { Layout, Menu } from "antd";
-import { getRoutes, getStorage } from "@/utils";
+import { getRoutes } from "@/utils";
 import { Route, Switch } from "react-router-dom";
 import CenterHeader from './header'
 
