@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { match } from "react-router";
 import { Layout, Menu } from "antd";
+import { SvgIcon } from "@/components";
 import { getRoutes, getStorage } from "@/utils";
-import { Route, Switch } from "react-router-dom";
-import CenterHeader from './header'
+import { Route, Switch, Link } from "react-router-dom";
+import CenterHeader from "./header";
 
 const { Header, Sider, Content } = Layout;
 interface userProps {
@@ -27,12 +28,16 @@ class User extends Component<userProps> {
     };
     render() {
         const { match, routerList } = this.props;
+
         const routes = getRoutes(match.path, routerList);
+        console.log(routes);
         return (
             <Layout style={{ height: "100vh" }}>
-                <Sider trigger={null} collapsible collapsed={false}>
-                    <div className="logo" />
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+                <Sider trigger={null} collapsible collapsed={false} style={{ background: '#ececec' }}>
+                    <Link to="/home" >
+                        <SvgIcon type="icon-chouzhi" size={58} />
+                    </Link>
+                    <Menu  mode="inline" defaultSelectedKeys={["1"]} style={{ background: '#ececec' }}>
                         <Menu.Item key="1">
                             <span>nav 1</span>
                         </Menu.Item>
@@ -45,10 +50,18 @@ class User extends Component<userProps> {
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header style={{padding:'0 50px', width: '100%',zIndex: 9,background:'#fff','boxShadow':'0 1px 4px rgba(0,21,41,.08)'}}>
-                        <CenterHeader/>
+                    <Header
+                        style={{
+                            padding: "0 50px",
+                            width: "100%",
+                            zIndex: 9,
+                            background: "#fff",
+                            boxShadow: "0 1px 4px rgba(0,21,41,.08)",
+                        }}
+                    >
+                        <CenterHeader />
                     </Header>
-                    <Content style={{ margin: '24px 24px 0', height: '100%' ,background:'#fff'}} >
+                    <Content style={{ margin: "24px 24px 0", height: "100%", background: "#fff" }}>
                         <Switch>
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
