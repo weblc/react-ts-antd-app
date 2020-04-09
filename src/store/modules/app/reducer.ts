@@ -5,7 +5,6 @@ const defaultStore ={
 }
 const appRedux = (state = defaultStore, action: any) => {
     const { type, payload } = action;
-    console.log(payload)
     switch (type) {
         case types.GET_APP:
             return {
@@ -14,7 +13,8 @@ const appRedux = (state = defaultStore, action: any) => {
             };
         case types.SET_APP:
             return {
-              ...state
+              ...state,
+              ...payload
                 
             };
         default:

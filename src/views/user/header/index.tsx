@@ -23,7 +23,7 @@ class CenterHeader extends Component<any> {
     }
     toggle = () => {
         const { collapsed } = this.props
-        this.props.toggleCollapsed(!collapsed)
+        this.props.toggleCollapsed({collapsed:!collapsed})
        console.log(this.props)
       }
    render(){
@@ -47,7 +47,7 @@ const stateMap = (state: any) => {
 };
 const mapActions = (dispatch: any) => {
     return {
-        toggleCollapsed: (payload: any) => toggle_collapsed(payload),
+        toggleCollapsed: (payload: any) =>dispatch(toggle_collapsed(payload)) ,
     }
 }
 export default connect(stateMap,mapActions)(CenterHeader);
