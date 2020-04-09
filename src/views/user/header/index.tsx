@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {Row} from 'antd'
 import { SvgIcon } from "@/components";
 import {UserInfo} from "@/views/account/userInfo";
-
+import{toggle_collapsed}from '@/store/modules/app/action'
 
 class CenterHeader extends Component<any> {
 
@@ -21,12 +21,17 @@ class CenterHeader extends Component<any> {
    componentWillUnmount (): void {
 
     }
+    toggle = () => {
+        const { collapsed } = this.props
+        this.props.toggleCollapsed(!collapsed)
+       console.log(this.props)
+      }
    render(){
 
     const { user } = this.props;
        return (
             <Row align="middle" justify="space-between">
-                <SvgIcon type="icon-menuoff" size={30} cursor={true}/>
+                <SvgIcon type="icon-menuoff" size={30}  onClick={this.toggle}/>
                 <Row>
                     <UserInfo user={user}/>
                 </Row>
@@ -40,7 +45,11 @@ const stateMap = (state: any) => {
         user: state.user.baseInfo,
     };
 };
-
-export default connect(stateMap)(CenterHeader);
+const mapActions = (dispatch: any) => {
+    return {
+        toggleCollapsed: (payload: any) => toggle_collapsed(payload),
+    }
+}
+export default connect(stateMap,mapActions)(CenterHeader);
 
 
