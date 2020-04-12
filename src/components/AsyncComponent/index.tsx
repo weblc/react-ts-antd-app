@@ -18,6 +18,7 @@ const LoadingComponent: ReactElement = (
 
 const Loading: FC<propsInterface> = props => {
     if (props.error) {
+       
         return <div>cuowu1</div>;
     } else {
         return LoadingComponent;

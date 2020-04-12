@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"
-import { match } from "react-router";
-import { Layout, Menu } from "antd";
+import { match, Redirect } from "react-router";
+import { Layout, Menu, Row, Col } from "antd";
 import { SvgIcon } from "@/components";
 import { getRoutes, getStorage } from "@/utils";
 import { Route, Switch, Link } from "react-router-dom";
+import { Space } from '@/components'
 import CenterHeader from "./header";
 
+import api from '@/api'
 const { Header, Sider, Content } = Layout;
 interface userProps {
     history: History;
     match: match;
-    app:any;
+    app: any;
     routerList: any;
     location: Location;
 }
+
+
 
 class User extends Component<userProps> {
     constructor(props: any) {
@@ -22,17 +26,15 @@ class User extends Component<userProps> {
         this.state = {};
     }
 
-    componentDidMount(): void { }
+    componentDidMount(): void { 
+       
+    }
     componentWillUnmount(): void { }
-    toggle = () => {
-        console.log(123);
-    };
-    render() {
-        const { match, routerList,app} = this.props;
 
+    render() {
+        const { match, routerList, app } = this.props;
         const routes = getRoutes(match.path, routerList);
-       
-       
+
         return (
             <Layout style={{ height: "100vh" }}>
                 <Sider trigger={null} collapsible collapsed={app.collapsed} style={{ background: '#ececec' }}>
@@ -41,9 +43,18 @@ class User extends Component<userProps> {
                     </Link>
                     <Menu mode="inline" defaultSelectedKeys={["0"]} style={{ background: '#ececec' }}>
                         {routes.map((e, i) => (
-                            <Menu.Item key={`${i}`}>
-                                <span>{e.name}</span>
+                            <Menu.Item key={`${i}`} title={e.name}>
+
+                                <Link to={e.path} style={{lineHeight:'12px',height:'100%'}}>
+                                    <Space size={30}>
+                                        <SvgIcon type={e.icon} size={22} />
+                                        <span>{e.name}</span>
+                                    </Space>
+                                </Link>
+
                             </Menu.Item>
+
+
                         ))}
                     </Menu>
                 </Sider>
@@ -57,9 +68,12 @@ class User extends Component<userProps> {
                             boxShadow: "0 1px 4px rgba(0,21,41,.08)",
                         }}
                     >
-                     <CenterHeader collapsed={app.collapsed}/>
+                        <CenterHeader collapsed={app.collapsed} />
                     </Header>
-                    <Content style={{ margin: "24px 24px 0", height: "100%", background: "#fff" }}>
+                    <Content style={{height: "100%", background: "f0f2f5" }}>
+                        <Redirect to={{
+                            pathname: '/user/analysis'
+                        }} />
                         <Switch>
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
@@ -72,4 +86,4 @@ class User extends Component<userProps> {
     }
 }
 
-export default connect(({app}:any)=>({app}))(User);
+export default connect(({ app }: any) => ({ app }))(User);

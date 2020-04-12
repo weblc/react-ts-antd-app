@@ -25,3 +25,11 @@ export const userLogin = (params:user)=>{
 export const getUserInfo = (params:string)=>{
     return xhr.post(`/api/user/getUserInfo`,params)
 }
+
+/**
+ *  获取用户中心数据分析
+ * @param params 
+ */
+export const getAnalysisData = ()=>{
+    return xhr.get(`/api/user/getAnalysisData`)
+}

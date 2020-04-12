@@ -28,10 +28,10 @@ class CenterHeader extends Component<any> {
       }
    render(){
 
-    const { user } = this.props;
+    const { user ,collapsed} = this.props;
        return (
             <Row align="middle" justify="space-between">
-                <SvgIcon type="icon-menuoff" size={30}  onClick={this.toggle}/>
+                <SvgIcon type={collapsed?'icon-menuon':'icon-menuoff'} size={30}  onClick={this.toggle}/>
                 <Row>
                     <UserInfo user={user}/>
                 </Row>

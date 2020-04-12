@@ -16,11 +16,13 @@ export default {
     },
     "/user/analysis":{
         name:"数据统计",
+        icon:'icon-tubiao',
         exact:false,
         component:Analysis,
     },
     "/user/collection":{
         name:"我的收藏",
+        icon:'icon-ziyuan',
         exact:true,
         component:Collection,
     },
