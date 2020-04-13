@@ -3,9 +3,7 @@ import dataChartsHoc from './index'
 import {
     Chart,
     Geom,
-    Axis,
     Tooltip,
-    Legend,
 } from "bizcharts";
 import DataSet from "@antv/data-set";
 

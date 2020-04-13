@@ -26,8 +26,8 @@ class User extends Component<userProps> {
         this.state = {};
     }
 
-    componentDidMount(): void { 
-       
+    componentDidMount(): void {
+
     }
     componentWillUnmount(): void { }
 
@@ -40,6 +40,7 @@ class User extends Component<userProps> {
                 <Sider trigger={null} collapsible collapsed={app.collapsed} style={{ background: '#ececec' }}>
                     <Link to="/home" >
                         <SvgIcon type="icon-chouzhi" size={58} />
+                        <h1>Cui</h1>
                     </Link>
                     <Menu mode="inline" defaultSelectedKeys={["0"]} style={{ background: '#ececec' }}>
                         {routes.map((e, i) => (
