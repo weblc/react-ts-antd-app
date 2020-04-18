@@ -27,23 +27,23 @@ const LandStatistics: React.FC<any> = ({ sourceData }) => {
 
 
     return (
-            <Chart data={dv}  height={100}
-                padding={"auto"}
+        <Chart data={dv} height={100}
+            padding={"auto"}
 
-                scale={scale}
-                forceFit
-            >
-                <Tooltip crosshairs={{style:{lineWidth:0}}} showTitle={false}/>
-                <Geom type="area" position="date*value" color={['type', 'pink']} shape="smooth" tooltip={['date*value', (date,value) => {
-                   return {
-                    name:`${date}登陆次数`,
-                    value:value
-                  }
-                }]} />
-            </Chart>
+            scale={scale}
+            forceFit
+        >
+            <Tooltip crosshairs={{ style: { lineWidth: 0 } }} showTitle={false} />
+            <Geom type="area" position="date*value" color={['type', 'pink']} shape="smooth" tooltip={['date*value', (date, value) => {
+                return {
+                    name: `${date}登陆次数`,
+                    value: value
+                }
+            }]} />
+        </Chart>
     );
 };
 
 export default dataChartsHoc({
-    title:'登陆次数'
+    title: '登陆次数'
 })(LandStatistics)

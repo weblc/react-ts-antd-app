@@ -7,6 +7,7 @@ import { AsyncComponent } from "@/components";
 const Collection = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/colloction"))
 const Analysis = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/analysis"))
 const Center = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/userLayout"))
+const Home = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/user/home"))
 
 export default {
     "/user":{
@@ -25,6 +26,12 @@ export default {
         icon:'icon-ziyuan',
         exact:true,
         component:Collection,
+    },
+    "/user/home":{
+        name:"我的主页",
+        icon:'icon-ziyuan',
+        exact:true,
+        component:Home,
     },
     
 }
