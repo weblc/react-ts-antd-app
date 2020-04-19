@@ -1,11 +1,15 @@
 @import '~@/assets/styles/variables.less';
 .body_wrapper{
-    padding: 0 120px;
+    padding: 10px 120px;
+   
 
+    .nav_style{
+        :global( .ant-tabs-nav-container){
+            font-size: 16px;
+            font-weight: bold;
+        }
+       
+    }
 }
 
-.nav_style{
-    height: 40px;
-    margin: 20px 0;
-    border-bottom: 2px solid @primary-color ;
-}
+
