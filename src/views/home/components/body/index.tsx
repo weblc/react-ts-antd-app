@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 import { Row, Tabs, Col } from "antd";
 import { Movies } from "@/components";
-import Nav from "./nav";
 import styles from "./body.module.less";
-import { AppleOutlined, AndroidOutlined } from "@ant-design/icons";
+import { AppleOutlined } from "@ant-design/icons";
 const { TabPane } = Tabs;
 interface movie {
     title: string;
@@ -135,7 +134,7 @@ export default class Body extends Component<any, any> {
                 {/* <Col>
                     <Nav />
                 </Col>
-              
+
                 <Row >
                     {ItemList.map((item, index) => {
                         return (

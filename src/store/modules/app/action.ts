@@ -5,8 +5,7 @@
  */
 import * as actionTypes from "./types"
 
-import api from '@/api'
-import {setStorage} from '@/utils'
+
  const toggle_collapsed =( payload:any) => {
     return {
       type: actionTypes.SET_APP,
@@ -15,7 +14,7 @@ import {setStorage} from '@/utils'
   }
 
 
- 
+
 
   export {
     toggle_collapsed,

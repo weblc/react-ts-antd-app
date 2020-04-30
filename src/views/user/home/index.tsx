@@ -1,10 +1,10 @@
 import React from 'react'
 
-
+import Cart from './cart'
 
 const HomePage:React.FC<any> = ()=>{
     return (
-        <div>home page</div>
+        <Cart />
     );
 }
 

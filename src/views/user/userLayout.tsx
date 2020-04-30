@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import { match, Redirect } from "react-router";
-import { Layout, Menu, Row, Col } from "antd";
+import { Layout, Menu, } from "antd";
 import { SvgIcon } from "@/components";
-import { getRoutes, getStorage } from "@/utils";
+import { getRoutes} from "@/router/utils";
 import { Route, Switch, Link } from "react-router-dom";
-import { Space } from '@/components'
+import { Space } from "@/components";
 import CenterHeader from "./header";
 
-import api from '@/api'
+
 const { Header, Sider, Content } = Layout;
 interface userProps {
     history: History;
@@ -18,44 +18,42 @@ interface userProps {
     location: Location;
 }
 
-
-
 class User extends Component<userProps> {
     constructor(props: any) {
         super(props);
         this.state = {};
     }
 
-    componentDidMount(): void {
-
-    }
-    componentWillUnmount(): void { }
+    componentDidMount(): void {}
+    componentWillUnmount(): void {}
 
     render() {
-        const { match, routerList, app } = this.props;
+        const { match, location, app ,routerList} = this.props;
+
         const routes = getRoutes(match.path, routerList);
+        console.log(routes)
+        let { pathname } = location;
+        if (pathname === "/user") {
+            pathname = "/user/analysis";
+        }
 
         return (
             <Layout style={{ height: "100vh" }}>
-                <Sider trigger={null} collapsible collapsed={app.collapsed} style={{ background: '#ececec' }}>
-                    <Link to="/home" >
+                <Sider trigger={null} collapsible collapsed={app.collapsed} style={{ background: "#ececec" }}>
+                    <Link to="/home">
                         <SvgIcon type="icon-chouzhi" size={58} />
                         <h1>Cui</h1>
                     </Link>
-                    <Menu mode="inline" defaultSelectedKeys={["0"]} style={{ background: '#ececec' }}>
+                    <Menu mode="inline" defaultSelectedKeys={[pathname]} style={{ background: "#ececec" }}>
                         {routes.map((e, i) => (
-                            <Menu.Item key={`${i}`} title={e.name}>
-
-                                <Link to={e.path} style={{lineHeight:'12px',height:'100%'}}>
+                            <Menu.Item key={e.key} title={e.name}>
+                                <Link to={e.path} style={{ lineHeight: "12px", height: "100%" }}>
                                     <Space size={30}>
                                         <SvgIcon type={e.icon} size={22} />
                                         <span>{e.name}</span>
                                     </Space>
                                 </Link>
-
                             </Menu.Item>
-
-
                         ))}
                     </Menu>
                 </Sider>
@@ -71,14 +69,17 @@ class User extends Component<userProps> {
                     >
                         <CenterHeader collapsed={app.collapsed} />
                     </Header>
-                    <Content style={{height: "100%", background: "f0f2f5" }}>
-                        <Redirect to={{
-                            pathname: '/user/analysis'
-                        }} />
+                    <Content style={{ height: "100%", background: "f0f2f5" }}>
                         <Switch>
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
                             })}
+                            {/* <Redirect
+                                from="/user"
+                                to={{
+                                    pathname: "/user/analysis",
+                                }}
+                            /> */}
                         </Switch>
                     </Content>
                 </Layout>

@@ -37,7 +37,7 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
                     <Row>
                     <Space>
                             <Avatar src={user.avatar} />
-                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            <a href=" " className="ant-dropdown-link" onClick={e => e.preventDefault()} >
                                 {user.name} <DownOutlined />
                             </a>
                         </Space>

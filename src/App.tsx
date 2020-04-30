@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter} from "react-router-dom";
 import { getRouterList } from "@/router";
 
 import {  getStorage} from "@/utils";
@@ -25,7 +25,7 @@ const App: React.FC = (props: any) => {
 
             <BrowserRouter>
                 <Switch>
-                    <Route path='/user' render={(props:any) => {
+                    <Route path='/user'   exact render={(props:any) => {
                             return (<UserLayout {...props} routerList={routerList} />)
                     }} />
                     <Route
@@ -36,6 +36,8 @@ const App: React.FC = (props: any) => {
                             );
                         }}
                     />
+
+
                 </Switch>
             </BrowserRouter>
 

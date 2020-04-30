@@ -2,7 +2,6 @@ import React from 'react'
 import dataChartsHoc from './index'
 
 import {
-    G2,
     Chart,
     Geom,
     Axis,

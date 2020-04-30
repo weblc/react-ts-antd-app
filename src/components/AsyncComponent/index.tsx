@@ -18,7 +18,6 @@ const LoadingComponent: ReactElement = (
 
 const Loading: FC<propsInterface> = props => {
     if (props.error) {
-       
         return <div>cuowu1</div>;
     } else {
         return LoadingComponent;
@@ -27,17 +26,17 @@ const Loading: FC<propsInterface> = props => {
 const DefaultProps: defaultPropsInterface = {
     loading: Loading,
     timeout: 20000, // ms
-    delay: 300 // ms
+    delay: 300, // ms
 };
 export default function AsyncComponent(component: any, callback?: () => void) {
+
     return Loadable({
         ...DefaultProps,
-        loader: component
-
-        //   render (loaded: any, props) {
-        //     callback && callback()
-        //     const Component = loaded.default
-        //     return <Component {...props}/>
-        //   }
+        loader: component,
+        render(loaded: any, props) {
+            callback && callback();
+            const Component = loaded.default;
+            return <Component {...props} />;
+        },
     });
 }

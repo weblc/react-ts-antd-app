@@ -7,6 +7,7 @@ const Home: React.FC = (props:any) => {
 
     return (
         <div>
+
             <Header />
             <Body {...props}/>
         </div>

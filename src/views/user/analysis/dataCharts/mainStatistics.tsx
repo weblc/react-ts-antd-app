@@ -6,7 +6,6 @@ import {
     Chart,
     Axis,
     Geom,
-    Legend,
     Tooltip,
 } from "bizcharts";
 interface colorMapInterFace{
