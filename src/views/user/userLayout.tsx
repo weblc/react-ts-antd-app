@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { match, Redirect } from "react-router";
 import { Layout, Menu, } from "antd";
 import { SvgIcon } from "@/components";
-import { getRoutes} from "@/router/utils";
+import { getRoutes} from "@/utils";
 import { Route, Switch, Link } from "react-router-dom";
 import { Space } from "@/components";
 import CenterHeader from "./header";
@@ -29,9 +29,8 @@ class User extends Component<userProps> {
 
     render() {
         const { match, location, app ,routerList} = this.props;
-
         const routes = getRoutes(match.path, routerList);
-        console.log(routes)
+        console.log(routerList)
         let { pathname } = location;
         if (pathname === "/user") {
             pathname = "/user/analysis";
@@ -74,12 +73,12 @@ class User extends Component<userProps> {
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
                             })}
-                            {/* <Redirect
+                            <Redirect
                                 from="/user"
                                 to={{
                                     pathname: "/user/analysis",
                                 }}
-                            /> */}
+                            />
                         </Switch>
                     </Content>
                 </Layout>

@@ -25,7 +25,7 @@ const App: React.FC = (props: any) => {
 
             <BrowserRouter>
                 <Switch>
-                    <Route path='/user'   exact render={(props:any) => {
+                    <Route path='/user'  render={(props:any) => {
                             return (<UserLayout {...props} routerList={routerList} />)
                     }} />
                     <Route
