@@ -6,6 +6,7 @@ import { SvgIcon } from "@/components";
 import { getRoutes} from "@/utils";
 import { Route, Switch, Link } from "react-router-dom";
 import { Space } from "@/components";
+import {getMenuData} from '@/router/menu'
 import CenterHeader from "./header";
 
 
@@ -30,7 +31,7 @@ class User extends Component<userProps> {
     render() {
         const { match, location, app ,routerList} = this.props;
         const routes = getRoutes(match.path, routerList);
-        console.log(routerList)
+        console.log(getMenuData())
         let { pathname } = location;
         if (pathname === "/user") {
             pathname = "/user/analysis";
