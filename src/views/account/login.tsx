@@ -12,7 +12,7 @@ class Login extends Component<any> {
     }
 
     componentDidMount(): void { }
-    componentWillUnmount(): void { }
+
 
     onFinish = async (values: any) => {
         this.props.userLoginHandle(values).then((res: any) => {

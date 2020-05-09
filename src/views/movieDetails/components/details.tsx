@@ -13,7 +13,6 @@ export default class Details extends Component {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
 
     render() {
         return (

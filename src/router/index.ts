@@ -1,7 +1,7 @@
 import { AsyncComponent } from "@/components";
 
 
-import user from './user'
+import manage from './manage'
 
 const Home = AsyncComponent(() =>
     import(/* webpackChunkName:'Home' */ "@/views/home")
@@ -27,7 +27,7 @@ export const getRouterList = () => {
             name: "影片详情",
             component:MovieDetails
         },
-        ...user
+        ...manage
 
     };
 };

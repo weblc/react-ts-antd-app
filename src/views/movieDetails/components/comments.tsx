@@ -151,7 +151,7 @@ export default class Comments extends Component<{}, IState> {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
+
     like = () => {
         this.setState({
             likes: 1,

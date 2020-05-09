@@ -231,28 +231,28 @@ class UserAnalysis extends Component<any,any> {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
+
     render() {
 
         return (
             <div className={styles.analysis}>
-                <div className={styles.briefing}>
+                {/* <div className={styles.briefing}>
                     <LandStatistics sourceData={UserAnalysisData.landData} />
                     <LandStatistics sourceData={UserAnalysisData.landData} />
                     <LandStatistics sourceData={UserAnalysisData.landData} />
                     <TaskStatistics sourceData={UserAnalysisData.taskData} />
-                </div>
+                </div> */}
                 <div className={styles.main}>
                 <MainChart sourceData={UserAnalysisData.mainData} width={"100%"} />
                 </div>
-                <Row gutter={20}>
+                {/* <Row gutter={20}>
                     <Col span={12}>
                         <RoseStatistics sourceData={UserAnalysisData.roseData} width={"100%"}/>
                     </Col>
                     <Col span={12}>
                         <RoseStatistics sourceData={UserAnalysisData.roseData} width={"100%"}/>
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         );
     }

@@ -18,9 +18,6 @@ class CenterHeader extends Component<any> {
    componentDidMount (): void {
 
     }
-   componentWillUnmount (): void {
-
-    }
     toggle = () => {
         const { collapsed } = this.props
         this.props.toggleCollapsed({collapsed:!collapsed})

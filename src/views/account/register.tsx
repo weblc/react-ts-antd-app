@@ -9,7 +9,6 @@ import { Form,  Input, Button  } from "antd";
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
     handleSubmit = (e:any) => {
         e.preventDefault();
         this.props.form.validateFields((err:any, values:any) => {

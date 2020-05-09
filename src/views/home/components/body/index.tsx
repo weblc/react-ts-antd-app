@@ -98,7 +98,6 @@ export default class Body extends Component<any, any> {
             pathname: "/movie/details",
         });
     };
-    componentWillUnmount(): void {}
     render() {
         return (
             <Row className={styles.body_wrapper}>

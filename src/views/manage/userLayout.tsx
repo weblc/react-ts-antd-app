@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { match, Redirect } from "react-router";
-import { Layout, Menu, } from "antd";
-import { SvgIcon } from "@/components";
+import { Route, Switch } from "react-router-dom";
+import { Layout } from "antd";
 import { getRoutes} from "@/utils";
-import { Route, Switch, Link } from "react-router-dom";
-import { Space } from "@/components";
-import {getMenuData} from '@/router/menu'
+
 import CenterHeader from "./header";
+import SiderMenu from "./siderMenu";
+
+import './'
+
+const { Header, Content } = Layout;
 
 
-const { Header, Sider, Content } = Layout;
 interface userProps {
     history: History;
     match: match;
@@ -25,38 +27,16 @@ class User extends Component<userProps> {
         this.state = {};
     }
 
-    componentDidMount(): void {}
-    componentWillUnmount(): void {}
+
 
     render() {
-        const { match, location, app ,routerList} = this.props;
+        const { match, location:{pathname}, app ,routerList} = this.props;
         const routes = getRoutes(match.path, routerList);
-        console.log(getMenuData())
-        let { pathname } = location;
-        if (pathname === "/user") {
-            pathname = "/user/analysis";
-        }
 
         return (
             <Layout style={{ height: "100vh" }}>
-                <Sider trigger={null} collapsible collapsed={app.collapsed} style={{ background: "#ececec" }}>
-                    <Link to="/home">
-                        <SvgIcon type="icon-chouzhi" size={58} />
-                        <h1>Cui</h1>
-                    </Link>
-                    <Menu mode="inline" defaultSelectedKeys={[pathname]} style={{ background: "#ececec" }}>
-                        {routes.map((e, i) => (
-                            <Menu.Item key={e.key} title={e.name}>
-                                <Link to={e.path} style={{ lineHeight: "12px", height: "100%" }}>
-                                    <Space size={30}>
-                                        <SvgIcon type={e.icon} size={22} />
-                                        <span>{e.name}</span>
-                                    </Space>
-                                </Link>
-                            </Menu.Item>
-                        ))}
-                    </Menu>
-                </Sider>
+                <SiderMenu collapsed={app.collapsed} pathname={pathname}/>
+
                 <Layout className="site-layout">
                     <Header
                         style={{
@@ -75,9 +55,9 @@ class User extends Component<userProps> {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
                             })}
                             <Redirect
-                                from="/user"
+                                from="/manage"
                                 to={{
-                                    pathname: "/user/analysis",
+                                    pathname: "/manage/data/analysis",
                                 }}
                             />
                         </Switch>

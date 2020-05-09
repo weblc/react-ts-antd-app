@@ -46,7 +46,6 @@ export default class CommonModal extends Component<modalProps> {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
     render() {
         return (
             <Modal

@@ -27,7 +27,6 @@ export default class MovieDetails extends Component {
 
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
     render() {
         return (
             <div className={styles.wrapper}>

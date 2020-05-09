@@ -18,7 +18,7 @@ export default class Movies extends Component<movie> {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
+
     render() {
         return (
             <Card

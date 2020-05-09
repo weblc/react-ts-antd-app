@@ -26,7 +26,6 @@ export default class Nav extends Component {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
     render() {
         return (
             <Row  justify="center" className={styles.nav_style}>

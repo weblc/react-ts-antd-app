@@ -19,7 +19,6 @@ export default class Profiles extends Component<profile> {
     }
 
     componentDidMount(): void {}
-    componentWillUnmount(): void {}
     render() {
         console.log(this.props);
         return (

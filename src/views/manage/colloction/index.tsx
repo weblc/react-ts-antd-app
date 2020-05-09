@@ -11,22 +11,15 @@ import React, { Component } from 'react'
 
        }
    }
-
-   componentDidMount (): void {
-
-    }
-   componentWillUnmount (): void {
-
-    }
    render(){
-   
+
        return (
            <div>
                <div>345</div>
-             
-           
+
+
            </div>
-           
+
        )
    }
 
