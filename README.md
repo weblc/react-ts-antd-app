@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 ### 主要技术栈
-    react16.9+   reactHook  redux  antd  react-router4+
+    react16.9+   reactHook  redux  antd  react-router4+  typescript  less-module
 ### `yarn start`
 
 Runs the app in the development mode.<br />
