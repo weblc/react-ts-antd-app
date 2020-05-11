@@ -8,7 +8,7 @@ import { getRoutes} from "@/utils";
 import CenterHeader from "./header";
 import SiderMenu from "./siderMenu";
 
-import './'
+
 
 const { Header, Content } = Layout;
 
@@ -49,7 +49,7 @@ class User extends Component<userProps> {
                     >
                         <CenterHeader collapsed={app.collapsed} />
                     </Header>
-                    <Content style={{ height: "100%", background: "f0f2f5" }}>
+                    <Content style={{ height: "100%", background: "f0f2f5" }} >
                         <Switch>
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
