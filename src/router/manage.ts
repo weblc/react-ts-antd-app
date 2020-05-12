@@ -4,11 +4,11 @@
  * @Date: 2020-04-09 11:52:11
  */
 import { AsyncComponent } from "@/components";
-const Collection = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/manage/colloction"))
-const Analysis = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/manage/analysis"))
-const Center = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/manage/userLayout"))
-const Home = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/manage/home"))
-const Task = AsyncComponent(()=> import(/* webpackChunkName:'User' */ "@/views/manage/task"))
+const Collection = AsyncComponent(()=> import(/* webpackChunkName:'Collection' */ "@/views/manage/colloction"))
+const Analysis = AsyncComponent(()=> import(/* webpackChunkName:'Analysis' */ "@/views/manage/analysis"))
+const Center = AsyncComponent(()=> import(/* webpackChunkName:'Center' */ "@/views/manage/userLayout"))
+const Home = AsyncComponent(()=> import(/* webpackChunkName:'Home' */ "@/views/manage/home"))
+const Task = AsyncComponent(()=> import(/* webpackChunkName:'Task' */ "@/views/manage/task"))
 
 export default {
     "/manage":{

@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
 import { getRoutes} from "@/utils";
 
+import NotFound from '@/views/notFound/404'
 import CenterHeader from "./header";
 import SiderMenu from "./siderMenu";
 
@@ -54,12 +55,14 @@ class User extends Component<userProps> {
                             {routes.map(item => {
                                 return <Route key={item.key} path={item.path} component={item.component} exact={item.exact} />;
                             })}
-                            <Redirect
+                             <Route render={NotFound}/>
+                            {/* <Redirect
                                 from="/manage"
                                 to={{
                                     pathname: "/manage/data/analysis",
                                 }}
-                            />
+                            /> */}
+
                         </Switch>
                     </Content>
                 </Layout>

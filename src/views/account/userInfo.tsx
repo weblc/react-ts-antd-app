@@ -18,7 +18,7 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
     const history = useHistory();
     const enterMineRoom = (): void => {
         history.push({
-            pathname: "/manage",
+            pathname: "/manage/data/analysis",
         });
     };
     const menu = (
