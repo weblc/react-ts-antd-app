@@ -1,1 +1,3 @@
-pet
+{
+    "files.autoSave": "onFocusChange"
+}

@@ -17,25 +17,23 @@ const validateMessages = {
         range: "${label} must be between ${min} and ${max}",
     },
 };
-
-const From: React.FC = () => {
-    const onFinish = (values: any) => {
-        console.log(values);
-    };
+interface formProps{
+    searchHandle:(val:any)=>void
+}
+const From: React.FC<formProps> = ({searchHandle}) => {
 
     return (
         <Form
             name="normal_login"
             layout="inline"
-            className="common-form"
-            initialValues={{ remember: true, username: "laoC", password: "123456" }}
-            onFinish={onFinish}
+            className="common-search-form"
+            onFinish={searchHandle}
         >
-            <Form.Item label="任务id" name="username" rules={[{ required: true, message: "请输入账号!" }]}>
-                <Input  placeholder="请输入账号" />
+            <Form.Item label="任务id" name="id" >
+                <Input  placeholder="请输任务id" />
             </Form.Item>
-            <Form.Item  label="其他" name="password" rules={[{ required: true, message: "请输入密码!" }]}>
-                <Input  type="password" placeholder="请输入密码" />
+            <Form.Item  label="其他" name="other" >
+                <Input  type="password" placeholder="请输入其他" />
             </Form.Item>
 
             <Form.Item>

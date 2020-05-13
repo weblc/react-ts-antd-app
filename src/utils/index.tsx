@@ -62,3 +62,15 @@ export const clearStorage = ():void=>{
 export const getStorage = (key:string)=>{
     return localStorage.getItem(key)
 }
+
+const sleep =(ms:number)=>{
+  return new Promise((resolve)=>{
+    setTimeout(() => {
+        resolve()
+    }, ms);
+  })
+}
+
+export {
+  sleep
+}

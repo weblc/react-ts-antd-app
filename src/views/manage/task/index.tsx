@@ -7,7 +7,8 @@ import { Table, Tag, Pagination, message } from "antd";
 import { SpaceRow } from "@/components";
 import From from "./form";
 
-import {mangerApi} from '@/api'
+import {managerApi} from '@/api'
+import {sleep} from '@/utils'
 
 import classnames from "classnames";
 import "./index.less";
@@ -78,15 +79,24 @@ class Task extends Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
+            loadding:false,
             tableData:[],
             top: "topLeft",
             bottom: "bottomRight",
         };
     }
     searchHandle = (val:any)=>{
-        mangerApi.getUserTaskList(val).then(({success,message,data})=>{
+        console.log(val)
+        this.setState({
+            loadding:true
+        })
+        managerApi.getUserTaskList(val).then(async ({success,message,data})=>{
+            await sleep(1000)
+            this.setState({
+                loadding:false
+            })
             if(success){
-                console.log(data)
+              
                 this.setState({
                     tableData:data
                 })
@@ -99,7 +109,9 @@ class Task extends Component<any, any> {
         return (
             <div className={classnames("manage-Layout")}>
                 <From searchHandle = {this.searchHandle}></From>
-                <Table columns={columns} dataSource={this.state.tableData} pagination={false} rowKey={(item,index)=>item.id}/>
+                <Table columns={columns} 
+                loading={this.state.loadding}
+                dataSource={this.state.tableData} pagination={false} rowKey={(item,index)=>item.id}/>
                 <SpaceRow>
                     <Pagination defaultCurrent={0} total={20} />
                 </SpaceRow>

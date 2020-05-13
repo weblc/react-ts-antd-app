@@ -1,6 +1,10 @@
-import * as user from './user'
+import * as user from "./user";
+import * as managerApi from "./manager";
 
 
-export default{
-    user
-}
+
+export { user, managerApi };
+export default {
+    user,
+    managerApi,
+};

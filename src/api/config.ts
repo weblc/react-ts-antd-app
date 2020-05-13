@@ -21,7 +21,7 @@ instance.interceptors.response.use(
             return Promise.resolve(response);
         }
         if(response.data.success){
-            message.success(response.data.message)
+           
             return response.data
         }
         
