@@ -40,7 +40,7 @@ const columns = [
                     }
                     return (
                         <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
+                             {tag.toUpperCase()}
                         </Tag>
                     );
                 })}
