@@ -86,7 +86,6 @@ class Task extends Component<any, any> {
         };
     }
     searchHandle = (val:any)=>{
-        console.log(val)
         this.setState({
             loadding:true
         })
@@ -96,7 +95,7 @@ class Task extends Component<any, any> {
                 loadding:false
             })
             if(success){
-              
+
                 this.setState({
                     tableData:data
                 })
@@ -109,7 +108,7 @@ class Task extends Component<any, any> {
         return (
             <div className={classnames("manage-Layout")}>
                 <From searchHandle = {this.searchHandle}></From>
-                <Table columns={columns} 
+                <Table columns={columns}
                 loading={this.state.loadding}
                 dataSource={this.state.tableData} pagination={false} rowKey={(item,index)=>item.id}/>
                 <SpaceRow>

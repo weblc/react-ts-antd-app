@@ -1,22 +1,8 @@
 import React from "react";
 
-import { Form, Input, InputNumber, Button } from "antd";
+import { Form, Input,  Button,DatePicker  } from "antd";
+const { RangePicker } = DatePicker;
 
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
-
-const validateMessages = {
-    required: "${label} is required!",
-    types: {
-        email: "${label} is not validate email!",
-        number: "${label} is not a validate number!",
-    },
-    number: {
-        range: "${label} must be between ${min} and ${max}",
-    },
-};
 interface formProps{
     searchHandle:(val:any)=>void
 }
@@ -34,6 +20,9 @@ const From: React.FC<formProps> = ({searchHandle}) => {
             </Form.Item>
             <Form.Item  label="其他" name="other" >
                 <Input  type="password" placeholder="请输入其他" />
+            </Form.Item>
+            <Form.Item  label="日期" name="date" >
+                 <RangePicker  />
             </Form.Item>
 
             <Form.Item>
