@@ -6,7 +6,7 @@ const { RangePicker } = DatePicker;
 interface formProps{
     searchHandle:(val:any)=>void
 }
-const From: React.FC<formProps> = ({searchHandle}) => {
+const FromComp: React.FC<formProps> = ({searchHandle}) => {
 
     return (
         <Form
@@ -34,4 +34,4 @@ const From: React.FC<formProps> = ({searchHandle}) => {
     );
 };
 
-export default From;
+export default FromComp;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { match, Redirect } from "react-router";
+import { match  } from "react-router";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
 import { getRoutes} from "@/utils";

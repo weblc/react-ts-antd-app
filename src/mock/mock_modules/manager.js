@@ -7,7 +7,9 @@ import Mock from 'mockjs'
 import * as dayjs from 'dayjs'
 const Random = Mock.Random;
 
-const getTaskList = Mock.mock('/mock/api/manager/taskList', 'post', (option) => {
+const getTaskList = Mock.mock('/mock/api/manager/taskList', 'post', ({body}) => {
+    const {page,...options} = JSON.parse(body)
+
     let newMockArr = []
     for(let i=0;i<10;i++){
         let time = Random.date('yyyy-MM-dd')
@@ -27,7 +29,16 @@ const getTaskList = Mock.mock('/mock/api/manager/taskList', 'post', (option) => 
     return {
         success: true,
         message: '获取成功',
-        data:Mock.mock(newMockArr)
+        data:{
+            list:Mock.mock(newMockArr),
+            pagination:{
+                current:page,
+                total:Random.integer(20,100),
+                pageSize:10,
+            }
+        },
+        code:1,
+
     }
 })
 export default {

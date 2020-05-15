@@ -7,6 +7,7 @@ type SizeType = "small" | "middle" | "large" | undefined;
 export interface SpaceRowProps {
     type?: "padding";
     size?: SizeType | number ;
+    justify?:any
 }
 
 const spaceSize = {
@@ -16,7 +17,7 @@ const spaceSize = {
 };
 
 const SpaceRow: React.FC<SpaceRowProps> = props => {
-    const { children, type = "padding", size  } = props;
+    const { children, type = "padding", size, justify } = props;
 
     const items = Children.toArray(children);
 
@@ -25,6 +26,7 @@ const SpaceRow: React.FC<SpaceRowProps> = props => {
             style={{
                 [type]: typeof size === "string" ? spaceSize[size] : size,
             }}
+            justify={justify}
         >
             {items.map((child, i) => (
                 <div key={i}>{child}</div>
