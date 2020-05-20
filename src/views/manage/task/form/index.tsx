@@ -5,8 +5,13 @@ const { RangePicker } = DatePicker;
 
 interface formProps{
     searchHandle:(val:any)=>void
+    formObj:{
+        id:string,
+        other:string,
+        date:string
+    }
 }
-const FromComp: React.FC<formProps> = ({searchHandle}) => {
+const FromComp: React.FC<formProps> = ({searchHandle ,formObj}) => {
 
     return (
         <Form
@@ -14,15 +19,16 @@ const FromComp: React.FC<formProps> = ({searchHandle}) => {
             layout="inline"
             className="common-search-form"
             onFinish={searchHandle}
+            initialValues={formObj}
         >
             <Form.Item label="任务id" name="id" >
                 <Input  placeholder="请输任务id" />
             </Form.Item>
             <Form.Item  label="其他" name="other" >
-                <Input  type="password" placeholder="请输入其他" />
+                <Input   placeholder="请输入其他" />
             </Form.Item>
             <Form.Item  label="日期" name="date" >
-                 <RangePicker  />
+                 <RangePicker format="" />
             </Form.Item>
 
             <Form.Item>

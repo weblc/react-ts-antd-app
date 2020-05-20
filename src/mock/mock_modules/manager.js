@@ -8,10 +8,10 @@ import * as dayjs from 'dayjs'
 const Random = Mock.Random;
 
 const getTaskList = Mock.mock('/mock/api/manager/taskList', 'post', ({body}) => {
-    const {page,...options} = JSON.parse(body)
-
+    const {...options} = JSON.parse(body)
+    console.log(options)
     let newMockArr = []
-    for(let i=0;i<10;i++){
+    for(let i=0;i<3;i++){
         let time = Random.date('yyyy-MM-dd')
         newMockArr.push(
             {
@@ -32,9 +32,9 @@ const getTaskList = Mock.mock('/mock/api/manager/taskList', 'post', ({body}) => 
         data:{
             list:Mock.mock(newMockArr),
             pagination:{
-                current:page,
-                total:Random.integer(20,100),
-                pageSize:10,
+                current:options.current,
+                total:options.total===0?Random.integer(20,100):options.total,
+                pageSize:options.pageSize,
             }
         },
         code:1,
