@@ -7,7 +7,7 @@ import { SpaceRow } from "@/components";
 import FromComp from "./form";
 import TableComp from "./table";
 import ActionComp from "./action";
-import AddModal from './components/addModal'
+import AddModal from "./components/addModal";
 
 import { managerApi } from "@/api";
 import { sleep } from "@/utils";
@@ -99,12 +99,17 @@ class Task extends Component<any, any> {
             addModalShow: true,
         });
     };
+    handleCancel = () => {
+        this.setState({
+            addModalShow: false,
+        });
+    };
     render() {
         const { current, total, pageSize } = this.state.pageObj;
         return (
             <div className={classnames("manage-Layout")}>
                 <FromComp searchHandle={this.searchHandle} formObj={this.state.form}></FromComp>
-                <ActionComp addHandle={this.addHandle}/>
+                <ActionComp addHandle={this.addHandle} />
                 <TableComp loadding={this.state.loadding} tableData={this.state.tableData} />
                 <SpaceRow justify="end" size={[15, 10]}>
                     <Pagination
@@ -116,7 +121,13 @@ class Task extends Component<any, any> {
                         showSizeChanger
                     />
                 </SpaceRow>
-                <AddModal title="Basic Modal" visible={this.state.addModalShow}/>
+                <AddModal
+                    title="新增任务"
+                    visible={this.state.addModalShow}
+                    onOk={this.handleCancel}
+                    onCancel={this.handleCancel}
+                    compData={{ test: 123 }}
+                />
             </div>
         );
     }

@@ -13,8 +13,7 @@ const ActionComp: React.FC<ActionProps> = ({addHandle}) => {
         <div className="common-table-action">
             <Space>
                 <Button type="primary" onClick={addHandle}>新增</Button>
-                <Button type="primary">修改</Button>
-                <Button type="primary">删除</Button>
+               
             </Space>
         </div>
     );
