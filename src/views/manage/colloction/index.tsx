@@ -1,16 +1,46 @@
-import React, { Component } from 'react'
+import React, { Component  } from 'react'
+
+interface TestHoc{
+    onPress?:()=>void
+}
+
+const Wrapper =<P extends object> (Comp:React.ComponentType<P>) => {
+    return class  extends React.Component<P>  {
+
+        render () {
+            return (
+                < >
+                    <div >这是高阶组件特有的函数</div >
+                    <Comp { ...this.props }/>
+                </ >
+            )
+        }
+    }
 
 
+}
 
+@Wrapper
+export default  class User extends Component <any,any>{
 
- class User extends Component {
+    constructor(props:any) {
+        super(props);
 
-   constructor (props:any ) {
-       super(props)
-       this.state = {
+        this.state = {
+            count: 0
+        }
 
-       }
-   }
+    }
+   onPress = ()=>{
+        let newCount = this.state.count + 1
+        this.setState({
+            count: newCount
+        },()=>{
+            if (this.state.count == 5){
+                throw new Error('i crashed！！！')
+            }
+        })
+    }
    render(){
 
        return (
@@ -24,5 +54,5 @@ import React, { Component } from 'react'
    }
 
 }
-export default User
+
 
