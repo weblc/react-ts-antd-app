@@ -126,7 +126,7 @@ class Task extends Component<any, any> {
                     visible={this.state.addModalShow}
                     onOk={this.handleCancel}
                     onCancel={this.handleCancel}
-                    compData={{ test: 123 }}
+
                 />
             </div>
         );
