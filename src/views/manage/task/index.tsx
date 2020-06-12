@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import moment from "moment";
-import { Pagination, Modal } from "antd";
+import { Pagination } from "antd";
 
 import { SpaceRow } from "@/components";
 import FromComp from "./form";

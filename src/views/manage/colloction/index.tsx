@@ -20,7 +20,7 @@ const Wrapper =<P extends object> (Comp:React.ComponentType<P>) => {
 
 }
 
-@Wrapper
+
 export default  class User extends Component <any,any>{
 
     constructor(props:any) {
@@ -42,11 +42,9 @@ export default  class User extends Component <any,any>{
         })
     }
    render(){
-
        return (
            <div>
                <div>345</div>
-
 
            </div>
 
