@@ -1,7 +1,7 @@
 version: '3'
 services:
   mobile-web-best-practice: #项目的service name
-    container_name: 'mobile-web-best-practice-container' #容器名称
+    container_name: 'react-ts-antd-app' #容器名称
     image: nginx #指定镜像
     restart: always
     ports:
