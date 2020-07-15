@@ -51,7 +51,7 @@ export function getRoutes (path: string, routerData: any): Array<any> {
   }
 
 
- 
+
 
 export const setStorage = (key:string,val:any):void=>{
     localStorage.setItem(key,val)
@@ -61,6 +61,9 @@ export const clearStorage = ():void=>{
 }
 export const getStorage = (key:string)=>{
     return localStorage.getItem(key)
+}
+export const removeStorage = (key:string)=>{
+    return localStorage.removeItem(key)
 }
 
 const sleep =(ms:number)=>{

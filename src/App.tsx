@@ -15,12 +15,12 @@ const App: React.FC = (props: any) => {
     const Layout = routerList["/"].component;
     const UserLayout = routerList['/manage'].component
 
-    const token = getStorage('token')
-        if(token){
-            api.user.getUserInfo(token).then((res)=>{
-               props.set_user(res.data)
-            })
-        }
+    // const token = getStorage('token')
+    //     if(token){
+    //         api.user.getUserInfo(token).then((res)=>{
+    //            props.set_user(res.data)
+    //         })
+    //     }
     return (
 
             <BrowserRouter>
@@ -44,6 +44,7 @@ const App: React.FC = (props: any) => {
     );
 };
 
-export default connect(() => ({}), {
-    set_user,
-  })(App);
+export default App;
+// export default connect(() => ({}), {
+//     set_user,
+//   })(App);

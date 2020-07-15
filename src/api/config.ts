@@ -2,7 +2,7 @@ import axios, {  AxiosError } from "axios";
 import { message } from "antd";
 
 const instance = axios.create({
-    baseURL: "/mock",
+    baseURL: '/api/eat-cat-server',
     timeout: 10000,
     // headers: { "X-Custom-Header": "foobar" }
 });
@@ -17,14 +17,11 @@ instance.interceptors.request.use(
 );
 instance.interceptors.response.use(
     (response) => {
+        console.log(response)
         if (!response.data) {
             return Promise.resolve(response);
         }
-        if(response.data.success){
-           
-            return response.data
-        }
-        
+        return Promise.resolve(response.data);
     },
     (error: AxiosError) => {
 

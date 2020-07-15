@@ -12,24 +12,24 @@ interface user {
 }
 /**
  * 登陆
- * @param params 
+ * @param params
  */
 export const userLogin = (params:user)=>{
-    return xhr.post(`/api/user/login`,params)
+    return xhr.post(`/user/login`,params)
 }
 
 /**
  *  获取用户信息
- * @param params 
+ * @param params
  */
 export const getUserInfo = (params:string)=>{
-    return xhr.post(`/api/user/getUserInfo`,params)
+    return xhr.post(`/user/getUserInfo`,params)
 }
 
 /**
  *  获取用户中心数据分析
- * @param params 
+ * @param params
  */
 export const getAnalysisData = ()=>{
-    return xhr.get(`/api/user/getAnalysisData`)
+    return xhr.get(`/user/getAnalysisData`)
 }
