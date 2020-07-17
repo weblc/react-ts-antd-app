@@ -34,25 +34,27 @@ class HandleWrapper extends React.Component<any, any> {
         this.setState({ [register]: false });
     };
     componentDidMount() {
-        // const token = getStorage("token");
-        // if (token) {
-        //     api.user.getUserInfo(token).then(({ success, data }) => {
-        //         if (success) {
-        //             this.props.set_user(data.user);
+        const token = getStorage("token");
+        if (token) {
+            api.user.getUserInfo(token).then(({ success, data }) => {
+                if (success) {
+                    console.log(data)
+                    // this.props.set_user(data.user);
 
-        //         } else {
-        //             removeStorage("token");
-        //         }
-        //     });
-        // }
+                } else {
+                    removeStorage("token");
+                }
+            });
+        }
     }
     render() {
         const { Search } = Input;
         const { user } = this.props;
+
         return (
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
-                {user.token ? (
+                {user.token? (
                     <UserInfo user={user} />
                 ) : (
                     <div>

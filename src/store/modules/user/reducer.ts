@@ -7,16 +7,19 @@ import * as types from "./types";
 
 const defaultStore = {
     baseInfo: {
-        userName: "",
+        name: "",
         age: "",
-        role: "",
+        role: [],
         sex: "",
         token:''
     }
 };
 
 const userRedux = (state = defaultStore, action: any) => {
+    console.log('===redux====')
+
     const { type, payload } = action;
+    console.log(payload)
     switch (type) {
         case types.USER_LOGIN:
             return {

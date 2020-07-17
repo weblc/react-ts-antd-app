@@ -29,10 +29,11 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
             <Menu.Item key="2">退出登录</Menu.Item>
         </Menu>
     );
-    console.log(user)
+    console.log(user.avatar)
     return (
         <Row>
             <Col>
+
                 <Dropdown overlay={menu}>
                     <Row>
                     <Space>

@@ -1,6 +1,6 @@
 import axios, {  AxiosError } from "axios";
 import { message } from "antd";
-
+import { getStorage } from "@/utils";
 const instance = axios.create({
     baseURL: '/api/eat-cat-server',
     timeout: 10000,
@@ -9,6 +9,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
     config => {
+        const token = getStorage('token')
+        config.headers.Authorization = `Bearer ${token}`
         return config;
     },
     err => {

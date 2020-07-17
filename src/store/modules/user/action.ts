@@ -20,7 +20,7 @@ import {setStorage} from '@/utils'
         return new Promise((resolve)=>{
             api.user.userLogin(data).then((res)=>{
                 setStorage('token',res.data.token)
-                dispatch(set_user(res.data.user))
+                dispatch(set_user({...res.data.user,token:res.data.token}))
                 resolve(res.data)
             })
         })
