@@ -34,16 +34,17 @@ class HandleWrapper extends React.Component<any, any> {
         this.setState({ [register]: false });
     };
     componentDidMount() {
-        const token = getStorage("token");
-        if (token) {
-            api.user.getUserInfo(token).then(({ success, data }) => {
-                if (success) {
-                    this.props.set_user(data);
-                } else {
-                    removeStorage("token");
-                }
-            });
-        }
+        // const token = getStorage("token");
+        // if (token) {
+        //     api.user.getUserInfo(token).then(({ success, data }) => {
+        //         if (success) {
+        //             this.props.set_user(data.user);
+
+        //         } else {
+        //             removeStorage("token");
+        //         }
+        //     });
+        // }
     }
     render() {
         const { Search } = Input;

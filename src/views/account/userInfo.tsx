@@ -29,7 +29,7 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
             <Menu.Item key="2">退出登录</Menu.Item>
         </Menu>
     );
-
+    console.log(user)
     return (
         <Row>
             <Col>
