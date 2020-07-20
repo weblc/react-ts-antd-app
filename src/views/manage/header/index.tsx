@@ -9,17 +9,18 @@ class CenterHeader extends Component<any> {
     constructor(props: any) {
         super(props);
         this.state = {};
-        console.log(this.props);
+
     }
 
     componentDidMount(): void {}
     toggle = () => {
         const { collapsed } = this.props;
         this.props.toggleCollapsed({ collapsed: !collapsed });
-        console.log(this.props);
+
     };
     render() {
         const { user, collapsed } = this.props;
+        console.log(user)
         return (
             <Row align="middle" justify="space-between">
                 <SvgIcon type={collapsed ? "icon-menuon" : "icon-menuoff"} size={30} onClick={this.toggle} />
@@ -30,14 +31,14 @@ class CenterHeader extends Component<any> {
         );
     }
 }
-const stateMap = (state: any) => {
-    return {
-        user: state.user.baseInfo,
-    };
-};
+
 const mapActions = (dispatch: any) => {
     return {
         toggleCollapsed: (payload: any) => dispatch(toggle_collapsed(payload)),
     };
 };
-export default connect(stateMap, mapActions)(CenterHeader);
+export default connect((state: any) => {
+    return {
+        user: state.user,
+    };
+}, mapActions)(CenterHeader);

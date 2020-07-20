@@ -8,7 +8,7 @@ import LoginModal from "@/views/account/login";
 import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
 import {UserInfo} from "@/views/account/userInfo";
-import Log from "./test";
+import { useHistory } from "react-router-dom";
 import { getStorage, removeStorage } from "@/utils";
 import api from "@/api";
 import { set_user } from "@/store/modules/user/action";
@@ -40,6 +40,7 @@ class HandleWrapper extends React.Component<any, any> {
     };
     componentDidMount() {
         const token = getStorage("token");
+
         if (token) {
             api.user.getUserInfo(token).then(({ success, data }) => {
                 if (success) {
@@ -49,6 +50,11 @@ class HandleWrapper extends React.Component<any, any> {
                     this.props.set_token("");
                     removeStorage("token");
                 }
+            });
+        }else{
+            const history = useHistory();
+            history.push({
+                pathname: "/home",
             });
         }
     }

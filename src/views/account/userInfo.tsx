@@ -34,7 +34,6 @@ export const UserInfo: React.FC<userProps> = ({ user,loginOut}) => {
     return (
         <Row>
             <Col>
-
                 <Dropdown overlay={menu}>
                     <Row>
                     <Space>
