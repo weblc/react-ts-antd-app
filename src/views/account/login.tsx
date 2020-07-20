@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import { Form, Input, Button, Checkbox } from "antd";
-import { user_login } from '@/store/modules/user/action'
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import { user_login } from "@/store/modules/user/action";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 class Login extends Component<any> {
     constructor(props: any) {
@@ -11,39 +10,26 @@ class Login extends Component<any> {
         this.state = {};
     }
 
-    componentDidMount(): void { }
-
+    componentDidMount(): void {}
 
     onFinish = async (values: any) => {
-        this.props.userLoginHandle(values).then((res: any) => {
-            console.log(res)
-        })
-
-
+        this.props.userLoginHandle(values).then(() => {
+            // this.props.onCancel()
+        });
     };
     render() {
         return (
             <Form
                 name="normal_login"
                 className="login-form"
-                initialValues={{ remember: true, name: 'laoC', password: "123456" }}
+                initialValues={{ remember: true, name: "laoC", password: "123456" }}
                 onFinish={this.onFinish}
             >
-                <Form.Item
-                    name="name"
-                    rules={[{ required: true, message: '请输入账号!' }]}
-                >
+                <Form.Item name="name" rules={[{ required: true, message: "请输入账号!" }]}>
                     <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="请输入账号" />
                 </Form.Item>
-                <Form.Item
-                    name="password"
-                    rules={[{ required: true, message: '请输入密码!' }]}
-                >
-                    <Input
-                        prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="请输入密码"
-                    />
+                <Form.Item name="password" rules={[{ required: true, message: "请输入密码!" }]}>
+                    <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="请输入密码" />
                 </Form.Item>
                 <Form.Item>
                     <Form.Item name="remember" valuePropName="checked" noStyle>
@@ -63,14 +49,13 @@ class Login extends Component<any> {
 
 const mapState = (state: any) => {
     return {
-        user: state.user
-    }
-}
+        user: state.user,
+    };
+};
 const mapActions = (dispatch: any) => {
     return {
         userLoginHandle: (payload: any) => dispatch(user_login(payload)),
-    }
-}
-
+    };
+};
 
 export default connect(mapState, mapActions)(Login);

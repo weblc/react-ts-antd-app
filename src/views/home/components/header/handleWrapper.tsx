@@ -12,6 +12,7 @@ import Log from "./test";
 import { getStorage, removeStorage } from "@/utils";
 import api from "@/api";
 import { set_user } from "@/store/modules/user/action";
+import { set_token } from "@/store/modules/app/action";
 // interface User{
 //     test:string
 // }
@@ -38,10 +39,10 @@ class HandleWrapper extends React.Component<any, any> {
         if (token) {
             api.user.getUserInfo(token).then(({ success, data }) => {
                 if (success) {
-                    console.log(data)
-                    // this.props.set_user(data.user);
-
+                    this.props.set_token(token)
+                    this.props.set_user(data.user);
                 } else {
+                    this.props.set_token('')
                     removeStorage("token");
                 }
             });
@@ -49,12 +50,12 @@ class HandleWrapper extends React.Component<any, any> {
     }
     render() {
         const { Search } = Input;
-        const { user } = this.props;
-
+        const { user,app} = this.props;
+        console.log()
         return (
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
-                {user.token? (
+                {app.token ? (
                     <UserInfo user={user} />
                 ) : (
                     <div>
@@ -79,7 +80,13 @@ class HandleWrapper extends React.Component<any, any> {
                         <CommonModal
                             title={"登录"}
                             visible={this.state.loginVisible}
-                            component={<LoginModal />}
+                            component={
+                                <LoginModal
+                                    onCancel={() => {
+                                        this.hideModal("loginVisible");
+                                    }}
+                                />
+                            }
                             onOk={() => {
                                 this.hideModal("loginVisible");
                             }}
@@ -109,8 +116,9 @@ class HandleWrapper extends React.Component<any, any> {
 
 const stateMap = (state: any) => {
     return {
-        user: state.user.baseInfo,
+        user: state.user,
+        app: state.app,
     };
 };
 
-export default connect(stateMap, { set_user })(HandleWrapper);
+export default connect(stateMap, { set_user,set_token})(HandleWrapper);
