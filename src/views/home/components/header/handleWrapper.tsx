@@ -39,10 +39,10 @@ class HandleWrapper extends React.Component<any, any> {
         if (token) {
             api.user.getUserInfo(token).then(({ success, data }) => {
                 if (success) {
-                    this.props.set_token(token)
+                    this.props.set_token(token);
                     this.props.set_user(data.user);
                 } else {
-                    this.props.set_token('')
+                    this.props.set_token("");
                     removeStorage("token");
                 }
             });
@@ -50,8 +50,7 @@ class HandleWrapper extends React.Component<any, any> {
     }
     render() {
         const { Search } = Input;
-        const { user,app} = this.props;
-        console.log()
+        const { user, app } = this.props;
         return (
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
@@ -121,4 +120,4 @@ const stateMap = (state: any) => {
     };
 };
 
-export default connect(stateMap, { set_user,set_token})(HandleWrapper);
+export default connect(stateMap, { set_user, set_token })(HandleWrapper);
