@@ -11,25 +11,26 @@ import { User } from "@/types/user";
 import { useHistory } from "react-router-dom";
 import { Space } from "@/components";
 interface userProps {
-    user: User;
+    user: User,
+    loginOut?: () => void;
 }
 
-export const UserInfo: React.FC<userProps> = ({ user }) => {
+export const UserInfo: React.FC<userProps> = ({ user,loginOut}) => {
     const history = useHistory();
     const enterMineRoom = (): void => {
         history.push({
             pathname: "/manage/data/analysis",
         });
     };
+
     const menu = (
         <Menu>
             <Menu.Item key="1" onClick={enterMineRoom}>
                 我的
             </Menu.Item>
-            <Menu.Item key="2">退出登录</Menu.Item>
+            <Menu.Item key="2" onClick={loginOut}>退出登录</Menu.Item>
         </Menu>
     );
-    console.log(user.avatar)
     return (
         <Row>
             <Col>
@@ -43,7 +44,6 @@ export const UserInfo: React.FC<userProps> = ({ user }) => {
                             </a>
                         </Space>
                     </Row>
-
                 </Dropdown>
             </Col>
         </Row>

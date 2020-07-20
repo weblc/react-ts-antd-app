@@ -14,7 +14,7 @@ class Login extends Component<any> {
 
     onFinish = async (values: any) => {
         this.props.userLoginHandle(values).then(() => {
-            // this.props.onCancel()
+            this.props.onCancel()
         });
     };
     render() {

@@ -7,7 +7,7 @@ import { SvgIcon } from "@/components";
 import LoginModal from "@/views/account/login";
 import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
-import { UserInfo } from "@/views/account/userInfo";
+import {UserInfo} from "@/views/account/userInfo";
 import Log from "./test";
 import { getStorage, removeStorage } from "@/utils";
 import api from "@/api";
@@ -34,6 +34,10 @@ class HandleWrapper extends React.Component<any, any> {
     hideModal = (register: string): void => {
         this.setState({ [register]: false });
     };
+    loginOutHandle = (): void => {
+        this.props.set_token("");
+        removeStorage("token");
+    };
     componentDidMount() {
         const token = getStorage("token");
         if (token) {
@@ -55,7 +59,7 @@ class HandleWrapper extends React.Component<any, any> {
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
                 {app.token ? (
-                    <UserInfo user={user} />
+                    <UserInfo user={user} loginOut={this.loginOutHandle} />
                 ) : (
                     <div>
                         <Button
