@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Row } from "antd";
 import { SvgIcon } from "@/components";
-import { UserInfo } from "@/views/account/userInfo";
+import UserInfo from "@/views/account/userInfo";
 import { toggle_collapsed } from "@/store/modules/app/action";
 
 class CenterHeader extends Component<any> {

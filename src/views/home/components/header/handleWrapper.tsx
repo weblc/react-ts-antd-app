@@ -7,16 +7,8 @@ import { SvgIcon } from "@/components";
 import LoginModal from "@/views/account/login";
 import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
-import {UserInfo} from "@/views/account/userInfo";
-import { useHistory } from "react-router-dom";
-import { getStorage, removeStorage } from "@/utils";
-import api from "@/api";
-import { set_user } from "@/store/modules/user/action";
-import { set_token } from "@/store/modules/app/action";
-// interface User{
-//     test:string
-// }
-// const User:User = {test:'12313'}
+import UserInfo from "@/views/account/userInfo";
+
 
 class HandleWrapper extends React.Component<any, any> {
     constructor(props: any) {
@@ -34,30 +26,8 @@ class HandleWrapper extends React.Component<any, any> {
     hideModal = (register: string): void => {
         this.setState({ [register]: false });
     };
-    loginOutHandle = (): void => {
-        this.props.set_token("");
-        removeStorage("token");
-    };
-    componentDidMount() {
-        const token = getStorage("token");
 
-        if (token) {
-            api.user.getUserInfo(token).then(({ success, data }) => {
-                if (success) {
-                    this.props.set_token(token);
-                    this.props.set_user(data.user);
-                } else {
-                    this.props.set_token("");
-                    removeStorage("token");
-                }
-            });
-        }else{
-            const history = useHistory();
-            history.push({
-                pathname: "/home",
-            });
-        }
-    }
+
     render() {
         const { Search } = Input;
         const { user, app } = this.props;
@@ -65,7 +35,7 @@ class HandleWrapper extends React.Component<any, any> {
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
                 {app.token ? (
-                    <UserInfo user={user} loginOut={this.loginOutHandle} />
+                    <UserInfo user={user}  />
                 ) : (
                     <div>
                         <Button
@@ -130,4 +100,4 @@ const stateMap = (state: any) => {
     };
 };
 
-export default connect(stateMap, { set_user, set_token })(HandleWrapper);
+export default connect(stateMap, {})(HandleWrapper);
