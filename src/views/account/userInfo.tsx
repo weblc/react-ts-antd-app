@@ -14,7 +14,7 @@ import { Space } from "@/components";
 import { connect } from "react-redux";
 
 import { set_token } from "@/store/modules/app/action";
-import { getStorage, removeStorage } from "@/utils";
+import { removeStorage } from "@/utils";
 interface userProps {
     user: User;
     set_token: (payload:any)=>any

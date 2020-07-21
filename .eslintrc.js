@@ -12,7 +12,7 @@ module.exports = {
     "extends": "react-app",
     "plugins": ["react-hooks"],
     "rules": {
-    "react/jsx-filename-extension": [1, { extensions: [".js"] }], // 允许js文件使用jsx语法
+    "react/jsx-filename-extension": [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }], // 允许js文件使用jsx语法
     "react/prop-types": 1, // 开启PropTypes验证
     "react/forbid-prop-types": 0,
     "react/prefer-stateless-function": 1, // 建议使用函数式组件

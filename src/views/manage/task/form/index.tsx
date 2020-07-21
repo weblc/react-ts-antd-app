@@ -4,7 +4,7 @@ import { Form, Input,  Button,DatePicker  } from "antd";
 const { RangePicker } = DatePicker;
 
 interface formProps{
-    searchHandle:(val:any)=>void
+    searchHandle:(val:any)=>void,
     formObj:{
         id:string,
         other:string,
