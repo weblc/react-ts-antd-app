@@ -19,7 +19,6 @@ instance.interceptors.request.use(
 );
 instance.interceptors.response.use(
     (response) => {
-        console.log(response)
         if (!response.data) {
             return Promise.resolve(response);
         }

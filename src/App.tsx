@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, BrowserRouter} from "react-router-dom";
 import { connect } from "react-redux";
 
-import "./mock";
+// import "./mock";
 import api from "@/api";
 import { getRouterList } from "@/router";
 import { set_user } from "@/store/modules/user/action";

@@ -22,10 +22,10 @@ class Login extends Component<any> {
             <Form
                 name="normal_login"
                 className="login-form"
-                initialValues={{ remember: true, name: "laoC", password: "123456" }}
+                initialValues={{ remember: true, account: "suibian", password: "123456" }}
                 onFinish={this.onFinish}
             >
-                <Form.Item name="name" rules={[{ required: true, message: "请输入账号!" }]}>
+                <Form.Item name="account" rules={[{ required: true, message: "请输入账号!" }]}>
                     <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="请输入账号" />
                 </Form.Item>
                 <Form.Item name="password" rules={[{ required: true, message: "请输入密码!" }]}>

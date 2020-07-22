@@ -27,6 +27,14 @@ export const getUserInfo = (params:string)=>{
 }
 
 /**
+ *  注册
+ * @param params
+ */
+export const userRegister = (params:object)=>{
+    return xhr.post(`/user/register`,params)
+}
+
+/**
  *  获取用户中心数据分析
  * @param params
  */

@@ -9,7 +9,6 @@ import RegisterModal from "@/views/account/register";
 import CommonModal from "@/components/commonModal";
 import UserInfo from "@/views/account/userInfo";
 
-
 class HandleWrapper extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -27,7 +26,6 @@ class HandleWrapper extends React.Component<any, any> {
         this.setState({ [register]: false });
     };
 
-
     render() {
         const { Search } = Input;
         const { user, app } = this.props;
@@ -35,7 +33,7 @@ class HandleWrapper extends React.Component<any, any> {
             <Row justify="end" align="middle">
                 <Search placeholder="请输入....." onSearch={value => console.log(value)} style={{ width: 200, marginRight: 50 }} />
                 {app.token ? (
-                    <UserInfo user={user}  />
+                    <UserInfo user={user} />
                 ) : (
                     <div>
                         <Button
@@ -77,7 +75,14 @@ class HandleWrapper extends React.Component<any, any> {
                         <CommonModal
                             title={"注册"}
                             visible={this.state.registerVisible}
-                            component={<RegisterModal />}
+                            component={
+                                <RegisterModal
+                                    visible={this.state.registerVisible}
+                                    onCancel={() => {
+                                        this.hideModal("registerVisible");
+                                    }}
+                                />
+                            }
                             onOk={() => {
                                 this.hideModal("registerVisible");
                             }}

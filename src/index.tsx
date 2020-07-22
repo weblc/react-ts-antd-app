@@ -12,7 +12,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
 
-moment.locale("zh-cn");
+moment.locale("zh-cn"); 
 const app = (
     <Provider store={store}>
         <ConfigProvider locale={zhCN}>
