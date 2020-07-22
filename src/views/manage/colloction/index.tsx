@@ -13,7 +13,7 @@ export default  class User extends Component <any,any>{
         this.setState({
             count: newCount
         },()=>{
-            if (this.state.count == 5){
+            if (this.state.count === 5){
                 throw new Error('i crashed！！！')
             }
         })

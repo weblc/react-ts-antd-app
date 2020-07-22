@@ -1,69 +1,80 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { Form,  Input, Button  } from "antd";
+import { Form, Input, Button } from "antd";
 
- class Register extends Component<any> {
-    constructor(props: any) {
-        super(props);
-        this.state = {};
-    }
 
-    componentDidMount(): void {}
-    handleSubmit = (e:any) => {
-        e.preventDefault();
-        this.props.form.validateFields((err:any, values:any) => {
-          if (!err) {
-            console.log('Received values of form: ', values);
-          }
-        });
-      };
-    render() {
-        const { getFieldDecorator } = this.props.form;
-        return (
-            <Form  className="login-form">
-                <Form.Item>
-                    {getFieldDecorator("username", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "请输入账号!"
-                            }
-                        ]
-                    })(
-                        <Input
+const layout = {
+    labelCol: { span: 6 },
+    wrapperCol: { span: 18 },
+};
+const tailLayout = {
+    wrapperCol: { offset: 6, span: 18 },
+};
 
-                            placeholder="Username"
-                        />
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    {getFieldDecorator("password", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "请输入密码!"
-                            }
-                        ]
-                    })(
-                        <Input
+const Register: React.FC = () => {
+    const onFinish = (values:any) => {
+        console.log("Success:", values);
+    };
 
-                            type="password"
-                            placeholder="Password"
-                        />
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        className="login-form-button"
-                    >
-                        注册
-                    </Button>
-                </Form.Item>
-            </Form>
-        );
-    }
-}
 
-export default Register
+    return (
+        <Form {...layout} name="basic" initialValues={{ remember: true }} onFinish={onFinish} >
+            <Form.Item label="用户名"  name="account" rules={[{ required: true, message: "请输入账号!" }]}>
+                <Input placeholder="请输入用户名"/>
+            </Form.Item>
+            <Form.Item label="密码" name="password" rules={[{ required: true, message: "请输入密码!" }]}>
+                <Input.Password placeholder="请输入密码"/>
+            </Form.Item>
+            <Form.Item label="确认密码" name="repeatPassword" rules={[{ required: true, message: "请再次输入密码!" }]}>
+                <Input.Password placeholder="请确认密码"/>
+            </Form.Item>
+            <Form.Item label="名称" name="username" rules={[{ required: false }]}>
+                <Input placeholder="请输入名称"/>
+            </Form.Item>
+
+
+            <Form.Item {...tailLayout}>
+                <Button type="primary" htmlType="submit">
+                    注册
+                </Button>
+            </Form.Item>
+        </Form>
+    );
+};
+
+export default Register;
+
+// class Register extends Component<any> {
+//     constructor(props: any) {
+//         super(props);
+//         this.state = {};
+//     }
+
+//     componentDidMount(): void {}
+//     onFinish = async (values: any) => {
+//         console.log(values)
+//     };
+//     render() {
+
+//         return (
+//             <Form className="login-form"  onFinish={this.onFinish}>
+//                 <Form.Item name="name" rules={[{ required: true, message: "请输入账号!" }]}>
+//                     <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="请输入账号" />
+//                 </Form.Item>
+//                 <Form.Item name="password" rules={[{ required: true, message: "请输入密码!" }]}>
+//                     <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="请输入密码" />
+//                 </Form.Item>
+//                 <Form.Item>
+//                     <Form.Item name="remember" valuePropName="checked" noStyle>
+//                         <Checkbox>记住密码</Checkbox>
+//                     </Form.Item>
+//                 </Form.Item>
+//                 <Form.Item>
+//                     <Button type="primary" htmlType="submit" className="login-form-button">
+//                         注册
+//                     </Button>
+//                 </Form.Item>
+//             </Form>
+//         );
+//     }
+// }

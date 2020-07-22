@@ -14,7 +14,7 @@ interface siderProps {
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
-const SiderMenu: React.FC<siderProps> = ({ collapsed,pathname='' }) => {
+const SiderMenu: React.FC<siderProps> = ({ collapsed ,pathname='' }) => {
     const [openKeys, setOpenKeys]:Array<any> = useState([]);
     const allSubMenu = getSubMenu()
     useEffect(() => {
