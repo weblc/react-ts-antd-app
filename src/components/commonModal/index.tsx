@@ -7,6 +7,7 @@ interface test {
 }
 
 interface modalProps {
+    getContainer:HTMLElement | false;
     visible: boolean;
     title?: string;
     component: any;
@@ -33,6 +34,7 @@ const Footer: React.FC<test> = ({ onOk, onCancel }) => {
 
 export default class CommonModal extends Component<modalProps> {
     static defaultProps = {
+        getContainer:document.body,
         visible: false,
         title: "标题",
         component: "",

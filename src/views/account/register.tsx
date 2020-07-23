@@ -1,6 +1,8 @@
-import React from "react";
-import api from "@/api";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, message } from "antd";
+
+import { Space } from "@/components";
+import api from "@/api";
 
 const layout = {
     labelCol: { span: 6 },
@@ -10,19 +12,17 @@ const tailLayout = {
     wrapperCol: { offset: 6, span: 18 },
 };
 
-interface RegisterProps{
-    visible:boolean,
-    onCancel:()=>void
+interface RegisterProps {
+    visible: boolean;
+    onCancel: () => void;
 }
 
-const Register: React.FC<any> = ({onCancel,visible}) => {
+const Register: React.FC<any> = ({ onCancel, visible }) => {
     const [form] = Form.useForm();
 
-    if(!visible){
+    const resetFrom = () => {
         form.resetFields();
-    }
-    
-
+    };
     const onFinish = (values: any) => {
         api.user.userRegister(values).then(({ success, data, ...res }) => {
             if (success) {
@@ -34,7 +34,7 @@ const Register: React.FC<any> = ({onCancel,visible}) => {
     };
 
     return (
-        <Form {...layout} form={form} name="basic" initialValues={{ remember: true }} onFinish={onFinish}>
+        <Form {...layout} form={form} name="basic" onFinish={onFinish}>
             <Form.Item label="账号" name="account" rules={[{ required: true, message: "请输入账号!" }]}>
                 <Input placeholder="请输入账号" />
             </Form.Item>
@@ -49,14 +49,17 @@ const Register: React.FC<any> = ({onCancel,visible}) => {
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                    注册
-                </Button>
+                <Space>
+                    <Button type="primary" htmlType="submit">
+                        注册
+                    </Button>
+                    <Button type="primary" onClick={resetFrom}>
+                        重置
+                    </Button>
+                </Space>
             </Form.Item>
         </Form>
     );
 };
 
 export default Register;
-
-

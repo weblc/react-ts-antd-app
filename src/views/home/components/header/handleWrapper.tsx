@@ -74,6 +74,7 @@ class HandleWrapper extends React.Component<any, any> {
                         />
                         <CommonModal
                             title={"注册"}
+                            getContainer={false}
                             visible={this.state.registerVisible}
                             component={
                                 <RegisterModal
