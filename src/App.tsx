@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route, BrowserRouter} from "react-router-dom";
+import React, { memo } from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 // import "./mock";
@@ -8,6 +8,7 @@ import { getRouterList } from "@/router";
 import { set_user } from "@/store/modules/user/action";
 import { set_token } from "@/store/modules/app/action";
 import { getStorage, removeStorage } from "@/utils";
+import { message } from "antd";
 
 const routerList: any = getRouterList();
 
@@ -17,11 +18,12 @@ const App: React.FC = (props: any) => {
 
     const token = getStorage("token");
     if (token) {
-        api.user.getUserInfo(token).then(({ success, data }) => {
+        api.user.getUserInfo(token).then(({ success, data,...res }) => {
             if (success) {
                 props.set_token(token);
                 props.set_user(data.user);
             } else {
+                message.error(res.message)
                 props.set_token("");
                 removeStorage("token");
             }
@@ -50,6 +52,6 @@ const App: React.FC = (props: any) => {
 
 // export default App;
 export default connect(() => ({}), {
-    set_user,
     set_token,
-})(App);
+    set_user,
+})(memo(App));
